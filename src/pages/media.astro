@@ -35,9 +35,15 @@ const toEmbed = (raw) => {
   <main class="section">
     <div class="container">
       <h1 class="h2 font-serif mb-4">Photo Gallery</h1>
+
+      <!-- Uniform 3:2 crop with centered subject -->
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12">
         {site.media.gallery.map((g) => (
-          <img src={g} alt="Gallery image" class="w-full h-52 object-cover rounded-md ring-1 ring-coal/10" />
+          <img
+            src={g}
+            alt="Gallery image"
+            class="w-full aspect-[3/2] object-cover object-center rounded-md ring-1 ring-coal/10"
+          />
         ))}
       </div>
 
