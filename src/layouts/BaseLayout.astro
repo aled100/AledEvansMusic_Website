@@ -1,5 +1,10 @@
 ---
-const { title = 'Aled Evans — Acoustic Singer & DJ', description = 'Elegant live acoustic + DJ for modern UK weddings', metaImage = '/images/1.jpeg' } = Astro.props;
+import '../styles/global.css';   // ✅ Import CSS properly so Astro/Vite bundles it
+const { 
+  title = 'Aled Evans — Acoustic Singer & DJ', 
+  description = 'Elegant live acoustic + DJ for modern UK weddings', 
+  metaImage = '/images/1.jpeg' 
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -11,7 +16,6 @@ const { title = 'Aled Evans — Acoustic Singer & DJ', description = 'Elegant li
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/styles/global.css" />
     <script defer data-domain="example.com" src="https://plausible.io/js/script.js"></script>
   </head>
   <body class="font-sans">
