@@ -7,13 +7,15 @@
     "image": "/images/1.jpeg",
     "mobileImage": "/images/hero-mobile.jpeg",
     "logo": "/images/logo.jpeg",
-    "headline": "Acoustic Singer for Weddings, Parties and live entertainment",
-    "subhead": "Bringing People together, One Chorus at a time."
+    "headline": "Acoustic Singer",
+    "subhead": "Elegant live acoustic singer + DJ for modern UK weddings across South Wales and beyond."
   },
   "nav": [
   { "label": "About", "url": "/about" },
   { "label": "Media", "url": "/media" },
   { "label": "Services", "url": "/services" },
+  { "label": "FAQ", "url": "/faq" },
+  { "label": "Christmas 2025", "url": "/Christmas2025" },
   { "label": "Contact", "url": "/contact" }
 ],
 

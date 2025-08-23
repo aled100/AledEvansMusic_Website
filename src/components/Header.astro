@@ -1,5 +1,8 @@
 ---
 import site from '../content/site.json';
+
+// De-duplicate nav items by URL (safety, in case JSON ever has dupes)
+const uniqueNav = Array.from(new Map(site.nav.map(i => [i.url, i])).values());
 ---
 
 <header id="site-header" class="fixed top-0 left-0 w-full transition-all duration-300 z-50">
@@ -12,7 +15,7 @@ import site from '../content/site.json';
 
     <!-- Desktop Nav -->
     <nav class="hidden md:flex gap-6 text-sm font-medium">
-      {site.nav.map((item) => (
+      {uniqueNav.map((item) => (
         <a href={item.url} class="hover:text-primary">{item.label}</a>
       ))}
     </nav>
@@ -30,18 +33,18 @@ import site from '../content/site.json';
   </div>
 </header>
 
-<!-- Slide-in Mobile Menu -->
+<!-- Slide-in Mobile Menu (hidden by default) -->
 <div 
   id="mobile-menu" 
-  class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-40 flex flex-col p-6"
+  class="hidden md:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-40 flex flex-col p-6"
 >
-  {site.nav.map((item) => (
+  {uniqueNav.map((item) => (
     <a href={item.url} class="py-2 text-lg border-b border-gray-200">{item.label}</a>
   ))}
 </div>
 
 <!-- Overlay -->
-<div id="overlay" class="fixed inset-0 bg-black/50 hidden z-30"></div>
+<div id="overlay" class="hidden fixed inset-0 bg-black/50 z-30"></div>
 
 <script>
   const header = document.getElementById('site-header');
@@ -49,7 +52,6 @@ import site from '../content/site.json';
   const bars = menuBtn.querySelectorAll('span');
   const menu = document.getElementById('mobile-menu');
   const overlay = document.getElementById('overlay');
-  let menuOpen = false;
 
   // Shrink header on scroll
   window.addEventListener('scroll', () => {
@@ -63,13 +65,12 @@ import site from '../content/site.json';
   });
 
   function openMenu() {
-    menu.classList.remove('translate-x-full');
+    menu.classList.remove('hidden', 'translate-x-full');
     overlay.classList.remove('hidden');
     // Animate hamburger → X
     bars[0].classList.add('rotate-45', 'translate-y-1.5');
     bars[1].classList.add('opacity-0');
     bars[2].classList.add('-rotate-45', '-translate-y-1.5');
-    menuOpen = true;
   }
 
   function closeMenu() {
@@ -79,12 +80,13 @@ import site from '../content/site.json';
     bars[0].classList.remove('rotate-45', 'translate-y-1.5');
     bars[1].classList.remove('opacity-0');
     bars[2].classList.remove('-rotate-45', '-translate-y-1.5');
-    menuOpen = false;
+    // Hide after the slide-out transition ends (300ms)
+    setTimeout(() => menu.classList.add('hidden'), 300);
   }
 
-  menuBtn.addEventListener('click', () => {
-    menuOpen ? closeMenu() : openMenu();
-  });
-
-  overlay.addEventListener('click', closeMenu);
+  let open = false;
+  menuBtn.addEventListener('click', () => (open ? closeMenu() : (open = true, openMenu())));
+  overlay.addEventListener('click', () => { open = false; closeMenu(); });
+  // Close when a mobile link is clicked
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { open = false; closeMenu(); }));
 </script>
