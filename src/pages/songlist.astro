@@ -1,19 +1,41 @@
-
 ---
 import Base from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../content/site.json';
+
+// Get decade order you want to show
+const decadeOrder = ["1960s","1970s","1980s","1990s","2000s","2010s","2020s"];
 ---
-<Base title="Songlist — Aled Evans" description={site.metaDescription}>
+<Base title="Song List — Aled Evans" description={site.metaDescription}>
   <Header />
   <main class="section">
     <div class="container">
-      <h1 class="h2 font-serif mb-4">First Dance & Acoustic Ideas</h1>
-      <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 small">
-        {site.songlist.firstDanceIdeas.map(item => <li>• {item}</li>)}
-      </ul>
-      <p class="small mt-6">Requests welcome — I’ll tailor the set to your crowd.</p>
+      <h1 class="h2 font-serif mb-4">Song List</h1>
+
+      <!-- First Dance -->
+      <section class="mb-10">
+        <h2 class="h3 font-serif mb-2">First Dance Ideas</h2>
+        <ul class="grid sm:grid-cols-2 gap-y-2">
+          {site.songlist.firstDanceIdeas.map((t) => (
+            <li class="leading-relaxed">{t}</li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Decades -->
+      {decadeOrder.map((decade) => (
+        site.songlist.songsByDecade[decade] && (
+          <section class="mb-10" id={decade}>
+            <h2 class="h3 font-serif mb-2">{decade}</h2>
+            <ul class="grid sm:grid-cols-2 gap-y-2">
+              {site.songlist.songsByDecade[decade].map((s) => (
+                <li class="leading-relaxed">{s.title} — {s.artist} <span class="text-sm text-gray-500">({s.year})</span></li>
+              ))}
+            </ul>
+          </section>
+        )
+      ))}
     </div>
   </main>
   <Footer />
