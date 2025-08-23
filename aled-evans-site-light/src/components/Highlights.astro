@@ -1,0 +1,12 @@
+
+---
+import site from '../content/site.json';
+---
+<section class="section bg-stone/40">
+  <div class="container grid md:grid-cols-2 gap-6">
+    <ul class="list-disc pl-5 space-y-2">
+      {site.highlights.map(h => <li class="lead">{h}</li>)}
+    </ul>
+    <div class="small self-center">Based in South Wales, available UK‑wide</div>
+  </div>
+</section>

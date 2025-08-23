@@ -1,0 +1,26 @@
+
+---
+import site from '../content/site.json';
+---
+<footer class="section bg-stone/40 mt-16">
+  <div class="container grid md:grid-cols-3 gap-8">
+    <div>
+      <div class="font-serif text-xl">{site.brandName}</div>
+      <div class="small">{site.tagline}</div>
+      <div class="small mt-2">Based in South Wales · Available UK‑wide</div>
+    </div>
+    <div>
+      <div class="font-serif">Contact</div>
+      <div class="small"><a href={"mailto:"+site.contact.email}>{site.contact.email}</a></div>
+      {site.contact.phone && (<div class="small">{site.contact.phone}</div>)}
+      <div class="small mt-2">Areas: {site.contact.areasServed.join(', ')}</div>
+    </div>
+    <div>
+      <div class="font-serif">Socials</div>
+      <ul class="small space-y-1">
+        {site.socials.map(s => <li><a href={s.url}>{s.name}</a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="container small mt-8 border-t border-coal/10 pt-4">© {new Date().getFullYear()} {site.brandName}. All rights reserved.</div>
+</footer>

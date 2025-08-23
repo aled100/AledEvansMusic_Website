@@ -1,0 +1,20 @@
+
+---
+import Base from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../content/site.json';
+---
+<Base title="Songlist — Aled Evans" description={site.metaDescription}>
+  <Header />
+  <main class="section">
+    <div class="container">
+      <h1 class="h2 font-serif mb-4">First Dance & Acoustic Ideas</h1>
+      <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 small">
+        {site.songlist.firstDanceIdeas.map(item => <li>• {item}</li>)}
+      </ul>
+      <p class="small mt-6">Requests welcome — I’ll tailor the set to your crowd.</p>
+    </div>
+  </main>
+  <Footer />
+</Base>

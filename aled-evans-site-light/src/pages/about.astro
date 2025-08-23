@@ -1,0 +1,24 @@
+
+---
+import Base from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../content/site.json';
+---
+<Base title="About — Aled Evans" description={site.metaDescription}>
+  <Header />
+  <main class="section">
+    <div class="container grid md:grid-cols-[260px,1fr] gap-8">
+      <img src={site.about.photo} alt="Aled Evans" class="w-full rounded-md ring-1 ring-coal/10" />
+      <div>
+        <h1 class="h2 font-serif mb-4">About / EPK</h1>
+        <p class="lead">{site.about.long}</p>
+        <div class="mt-6 grid sm:grid-cols-2 gap-3">
+          <a class="btn-outline" href="/images/1.jpeg" download>Download Press Photo</a>
+          <a class="btn-outline" href="/images/logo.jpeg" download>Download Logo</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>

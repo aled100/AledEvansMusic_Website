@@ -1,0 +1,27 @@
+
+---
+import Base from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../content/site.json';
+---
+<Base title="Services — Aled Evans" description={site.metaDescription}>
+  <Header />
+  <main class="section">
+    <div class="container">
+      <h1 class="h2 font-serif mb-6">Services & Packages</h1>
+      <div class="grid md:grid-cols-3 gap-6">
+        {site.services.map(s => (
+          <div class="rounded-md bg-white ring-1 ring-coal/10 p-6">
+            <div class="text-3xl">{s.icon}</div>
+            <div class="font-serif text-xl mt-3">{s.name}</div>
+            <p class="small mt-2">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="small mt-6">Get a tailored quote for your date and venue.</p>
+      <a href="/contact" class="btn mt-3">Get a Quote</a>
+    </div>
+  </main>
+  <Footer />
+</Base>

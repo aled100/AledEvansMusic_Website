@@ -1,0 +1,13 @@
+
+---
+import site from '../content/site.json';
+---
+<section class="section bg-stone/40">
+  <div class="container">
+    <h2 class="h2 font-serif mb-4">Songlist — First Dance Ideas</h2>
+    <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 small">
+      {site.songlist.firstDanceIdeas.map(item => <li>• {item}</li>)}
+    </ul>
+    <a href="/songlist" class="btn-outline mt-6 inline-block">View Full Songlist</a>
+  </div>
+</section>

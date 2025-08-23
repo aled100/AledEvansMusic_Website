@@ -1,0 +1,67 @@
+
+local_backend: true
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site"
+    label: "Site Content"
+    files:
+      - file: "src/content/site.json"
+        label: "General Site Content"
+        name: "site"
+        fields:
+          - {label: Brand Name, name: brandName, widget: string}
+          - {label: Tagline, name: tagline, widget: string}
+          - {label: Primary CTA, name: primaryCTA, widget: string}
+          - {label: Meta Description, name: metaDescription, widget: string}
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - {label: Headline, name: headline, widget: string}
+              - {label: Subhead, name: subhead, widget: string}
+              - {label: Image, name: image, widget: image}
+              - {label: Logo, name: logo, widget: image}
+          - {label: Highlights, name: highlights, widget: list, field: {label: Item, name: item, widget: string}}
+          - label: About
+            name: about
+            widget: object
+            fields:
+              - {label: Short, name: short, widget: text}
+              - {label: Long, name: long, widget: text}
+              - {label: Photo, name: photo, widget: image}
+          - label: Services
+            name: services
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Description, name: desc, widget: text}
+              - {label: Icon (emoji), name: icon, widget: string}
+          - label: Media
+            name: media
+            widget: object
+            fields:
+              - {label: Gallery, name: gallery, widget: list, field: {label: Image, name: image, widget: image}}
+              - {label: Videos, name: videos, widget: list, fields: [{label: Title, name: title, widget: string}, {label: URL, name: url, widget: string}]}
+          - label: Songlist
+            name: songlist
+            widget: object
+            fields:
+              - {label: First Dance Ideas, name: firstDanceIdeas, widget: list, field: {label: Song, name: song, widget: string}}
+          - label: Contact
+            name: contact
+            widget: object
+            fields:
+              - {label: Email, name: email, widget: string}
+              - {label: Phone, name: phone, widget: string, required: false}
+              - {label: Areas Served, name: areasServed, widget: list, field: {label: Area, name: area, widget: string}}
+          - label: Socials
+            name: socials
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: URL, name: url, widget: string}

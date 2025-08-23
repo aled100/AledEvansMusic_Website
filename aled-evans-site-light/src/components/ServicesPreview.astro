@@ -1,0 +1,19 @@
+
+---
+import site from '../content/site.json';
+---
+<section class="section bg-stone/40">
+  <div class="container">
+    <h2 class="h2 font-serif mb-6">Services & Packages</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      {site.services.map(s => (
+        <div class="rounded-md bg-white ring-1 ring-coal/10 p-6">
+          <div class="text-3xl">{s.icon}</div>
+          <div class="font-serif text-xl mt-3">{s.name}</div>
+          <p class="small mt-2">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+    <a href="/services" class="btn-outline mt-6 inline-block">See Packages</a>
+  </div>
+</section>

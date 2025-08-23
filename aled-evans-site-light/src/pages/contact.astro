@@ -1,0 +1,38 @@
+
+---
+import Base from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../content/site.json';
+---
+<Base title="Contact — Aled Evans" description={site.metaDescription}>
+  <Header />
+  <main class="section">
+    <div class="container max-w-2xl">
+      <h1 class="h2 font-serif mb-6">Check My Date</h1>
+      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid gap-4 bg-white p-6 rounded-md ring-1 ring-coal/10">
+        <input type="hidden" name="form-name" value="enquiry" />
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+        <label class="small">Name <input class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="name" required /></label>
+        <label class="small">Email <input type="email" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="email" required /></label>
+        <label class="small">Phone <input class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="phone" /></label>
+        <label class="small">Event date <input type="date" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="date" required /></label>
+        <label class="small">Venue <input class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="venue" /></label>
+        <label class="small">Guests <input type="number" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="guests" /></label>
+        <label class="small">Services
+          <select name="services" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20">
+            <option>Ceremony Acoustic</option>
+            <option>Drinks Reception</option>
+            <option>Evening DJ</option>
+            <option>All Day Package</option>
+          </select>
+        </label>
+        <label class="small">Message <textarea rows="5" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="message"></textarea></label>
+        <button class="btn" type="submit">Send Enquiry</button>
+      </form>
+    </div>
+  </main>
+  <Footer />
+</Base>

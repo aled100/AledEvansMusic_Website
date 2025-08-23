@@ -1,0 +1,91 @@
+{
+  "brandName": "Aled Evans",
+  "tagline": "Acoustic Singer & DJ",
+  "primaryCTA": "Check My Date",
+  "metaDescription": "Elegant live acoustic + DJ for modern UK weddings across South Wales and beyond.",
+  "hero": {
+    "image": "/images/1.jpeg",
+    "mobileImage": "/images/hero-mobile.jpeg",
+    "logo": "/images/logo.jpeg",
+    "headline": "Acoustic Singer & DJ for Weddings",
+    "subhead": "Stylish live music and party DJ services across South Wales and the UK."
+  },
+  "nav": [
+  { "label": "About", "url": "/about" },
+  { "label": "Media", "url": "/media" },
+  { "label": "Services", "url": "/services" },
+  { "label": "Contact", "url": "/contact" }
+],
+
+  "highlights": [
+    "Acoustic sets for ceremony & drinks",
+    "Dancefloor-filling DJ sets",
+    "One seamless package from start to finish",
+    "Based in South Wales, available UK-wide"
+  ],
+  "about": {
+    "short": "Hi, I’m Aled, a South Wales–based acoustic singer and DJ, bringing unforgettable live music to weddings, parties, and special events. With soulful acoustic covers and high-energy DJ sets, I create the perfect atmosphere from the ceremony to the last dance.",
+    "long": "Aled is an experienced acoustic singer and DJ based in South Wales, specialising in weddings, parties, and private celebrations. His versatile acoustic sets feature heartfelt renditions of classics from Oasis, Bruce Springsteen, and Sam Fender, alongside unique acoustic twists on favourites by Whitney Houston, ABBA, and Ricky Martin. With an instinct for reading the room, he creates intimate, singalong moments for ceremonies, drinks receptions, and evening entertainment. Beyond live performance, Aled brings energy to the dancefloor as a professional DJ. From timeless wedding anthems to modern chart-toppers, his carefully crafted DJ sets keep guests of all ages dancing late into the night.",
+    "photo": "/images/2.jpeg"
+  },
+  "services": [
+    {
+      "name": "Ceremony Acoustic",
+      "desc": "Beautiful acoustic guitar & vocals for aisle walks, signing, and exit.",
+      "icon": "🎸"
+    },
+    {
+      "name": "Drinks Reception",
+      "desc": "Laid-back sets that set the tone for the day.",
+      "icon": "🥂"
+    },
+    {
+      "name": "Evening DJ",
+      "desc": "A packed dancefloor with proven wedding anthems.",
+      "icon": "🎧"
+    }
+  ],
+  "media": {
+    "gallery": [
+      "/images/3.jpeg",
+      "/images/4.jpeg",
+      "/images/5.jpeg",
+      "/images/6.jpeg",
+      "/images/7.jpeg",
+      "/images/8.jpeg"
+    ],
+    "videos": [
+      { "title": "Showreel 1", "url": "https://youtu.be/ec66iRk_Fwc" },
+      { "title": "Short 1", "url": "https://youtube.com/shorts/k1HnCuaWvBk?feature=share" },
+      { "title": "Showreel 2", "url": "https://youtu.be/4lACETfaRAY" },
+      { "title": "Wedding Clip", "url": "https://youtu.be/raSu-yLLnps" }
+    ]
+  },
+  "songlist": {
+    "firstDanceIdeas": [
+      "Still Into You — Paramore",
+      "Perfect — Ed Sheeran",
+      "A Thousand Years — Christina Perri",
+      "Always Remember Us This Way — Lady Gaga",
+      "Can’t Help Falling in Love — Elvis",
+      "Make You Feel My Love — Dylan/Adele",
+      "Crazy Love — Van Morrison",
+      "Pam Fod Eira’n Wyn? — Dafydd Iwan",
+      "Dreams — The Cranberries",
+      "All You Need Is Love — The Beatles",
+      "Good Riddance (Time of Your Life) — Green Day",
+      "Can’t Take My Eyes Off You — Frankie Valli"
+    ]
+  },
+  "contact": {
+    "email": "hello@example.com",
+    "phone": "",
+    "areasServed": ["South Wales", "Cardiff", "Swansea", "Bristol"]
+  },
+  "socials": [
+    { "name": "Instagram", "url": "https://instagram.com/aledevansmusic" },
+    { "name": "Facebook", "url": "https://www.facebook.com/profile.php?id=100090445310662" },
+    { "name": "TikTok", "url": "#" },
+    { "name": "YouTube", "url": "#" }
+  ]
+}

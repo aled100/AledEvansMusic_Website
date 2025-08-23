@@ -1,0 +1,14 @@
+
+---
+import site from '../content/site.json';
+---
+<section class="section">
+  <div class="container grid md:grid-cols-[220px,1fr] gap-8 items-start">
+    <img src={site.about.photo} alt="Aled performing" class="w-full rounded-md ring-1 ring-coal/10" />
+    <div>
+      <h2 class="h2 font-serif mb-3">About</h2>
+      <p class="lead">{site.about.short}</p>
+      <a href="/about" class="btn-outline mt-6 inline-block">Read More</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  @apply bg-ivory text-coal;
+}
+
+a { @apply underline decoration-gold/40 underline-offset-4 hover:decoration-gold; }
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-full border border-coal/10 bg-coal text-ivory px-5 py-3 text-sm font-semibold tracking-wide hover:bg-coal/90 transition;
+}
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-full border border-coal/20 bg-transparent text-coal px-5 py-3 text-sm font-semibold tracking-wide hover:bg-coal/5 transition;
+}
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+.section {
+  @apply py-12 md:py-16;
+}
+.h1 { @apply font-serif text-4xl md:text-5xl leading-tight; }
+.h2 { @apply font-serif text-2xl md:text-3xl leading-snug; }
+.lead { @apply text-base md:text-lg text-coal/80; }
+.small { @apply text-sm text-coal/70; }
