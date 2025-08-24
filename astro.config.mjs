@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://aledevansmusic.netlify.app', // ✅ your live Netlify URL
+  site: 'https://aledevansmusic.com', // ✅ your live Netlify URL
   integrations: [
     tailwind({ applyBaseStyles: false }),
     sitemap()
