@@ -1,31 +1,36 @@
 ---
 import site from '../content/site.json';
 ---
-<section class="relative -mt-20 md:-mt-24">
+<section class="relative">
   <picture>
-    <!-- Mobile portrait hero -->
+    <!-- Mobile -->
     <source srcset={site.hero.mobileImage} media="(max-width: 768px)" />
-    <!-- Default desktop hero -->
+    <!-- Desktop -->
     <img 
       src={site.hero.image} 
       alt="Aled Evans performing" 
-      class="absolute inset-0 h-full w-full object-cover opacity-60" 
+      class="absolute inset-0 h-full w-full object-cover opacity-60"  <!-- keep your current image look -->
     />
   </picture>
 
   <div class="relative container pt-12 pb-28 md:pt-36 md:pb-40 text-center">
-    <!-- Larger, responsive logo -->
     <img 
       src={site.hero.logo} 
       alt="Logo" 
       class="mx-auto mb-6 h-28 w-28 md:h-72 md:w-72 rounded-full ring-2 ring-white/20 shadow-lg" 
     />
-    
-    <h1 class="h1 font-serif max-w-3xl mx-auto">{site.hero.headline}</h1>
-    <p class="lead mt-3 max-w-2xl mx-auto">{site.hero.subhead}</p>
+
+    <!-- ⬇️ Frosted plaque just behind the text -->
+    <div class="mx-auto max-w-2xl inline-block rounded-2xl 
+                bg-white/55 md:bg-white/40 backdrop-blur-[2px]
+                ring-1 ring-white/50 shadow-[0_6px_24px_rgba(0,0,0,0.06)]
+                px-4 py-3 md:px-6 md:py-4 text-left md:text-center">
+      <h1 class="h1 font-serif tracking-tight text-black">{site.hero.headline}</h1>
+      <p class="mt-2 leading-relaxed text-neutral-800">{site.hero.subhead}</p>
+    </div>
+
     <div class="mt-6">
       <a href="/contact" class="btn">{site.primaryCTA}</a>
     </div>
   </div>
 </section>
-
