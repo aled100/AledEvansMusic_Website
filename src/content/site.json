@@ -7,7 +7,7 @@
     "image": "/images/1.jpeg",
     "mobileImage": "/images/hero-mobile.jpeg",
     "logo": "/images/logo.jpeg",
-    "headline": "Acoustic Singer",
+    "headline": "Acoustic Singer & DJ",
     "subhead": "Elegant live acoustic singer + DJ for modern UK weddings across South Wales and beyond."
   },
   "nav": [
@@ -27,7 +27,14 @@
   ],
   "about": {
     "short": "Hi, I’m Aled, a South Wales–based acoustic singer and DJ, bringing unforgettable live music to weddings, parties, and special events. With soulful acoustic covers and high-energy DJ sets, I create the perfect atmosphere from the ceremony to the last dance.",
-    "long": "Aled is an experienced acoustic singer and DJ based in South Wales, specialising in weddings, parties, and private celebrations. His versatile acoustic sets feature heartfelt renditions of singalong classics and modern hits. With over 30 years experience of performing music on stage, he has developed an instinct for reading the room, he creates intimate, singalong moments for ceremonies, drinks receptions, and evening entertainment. Beyond live performance, Aled brings energy to the dancefloor from behind the decks as well as the guitar as a DJ. From timeless wedding anthems to modern chart-toppers, his carefully crafted DJ sets keep guests of all ages dancing late into the night.",
+  "long":[ 
+    "Aled is an experienced acoustic singer and DJ based in South Wales, specialising in weddings, parties, and private celebrations.",
+    "His versatile acoustic sets feature heartfelt renditions of singalong classics and modern hits.",
+    "With over 30 years experience of performing music on stage, he has developed an instinct for reading the room, he creates intimate, singalong moments for ceremonies, drinks receptions, and evening entertainment.",
+    "Beyond live performance, Aled brings energy to the dancefloor from behind the decks as well as the guitar as a DJ. From timeless wedding anthems to modern chart-toppers, his carefully crafted DJ sets keep guests of all ages dancing late into the night.",
+    "All equpiment is PAT tested and Public Liability Insurance is covered.",
+    "Aled comes fully self contained, with industry standard PA, lighting and music production equipment"
+  ],
     "photo": "/images/2.jpeg"
   },
   "services": [
@@ -192,14 +199,14 @@
   }
 },
   "contact": {
-    "email": "hello@example.com",
-    "phone": "",
+    "email": "aled@aledevansmusic.com",
+    "phone": "07923 97 97 07",
     "areasServed": ["South Wales", "Cardiff", "Swansea", "Bristol"]
   },
   "socials": [
     { "name": "Instagram", "url": "https://instagram.com/aledevansmusic" },
     { "name": "Facebook", "url": "https://www.facebook.com/profile.php?id=100090445310662" },
-    { "name": "TikTok", "url": "#" },
-    { "name": "YouTube", "url": "#" }
+    { "name": "TikTok", "url": "https://www.tiktok.com/@aledacoustic" },
+    { "name": "YouTube", "url": "https://www.youtube.com/@AledEvansMusic" }
   ]
 }

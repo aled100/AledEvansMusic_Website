@@ -1,4 +1,3 @@
-
 ---
 import Base from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
@@ -12,7 +11,17 @@ import site from '../content/site.json';
       <img src={site.about.photo} alt="Aled Evans" class="w-full rounded-md ring-1 ring-coal/10" />
       <div>
         <h1 class="h2 font-serif mb-4">About / EPK</h1>
-        <p class="lead">{site.about.long}</p>
+
+        {Array.isArray(site.about.long) ? (
+          <ul class="list-disc pl-5 space-y-2">
+            {site.about.long.map(item => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p class="lead whitespace-pre-line">{site.about.long}</p>
+        )}
+
         <div class="mt-6 grid sm:grid-cols-2 gap-3">
           <a class="btn-outline" href="/images/1.jpeg" download>Download Press Photo</a>
           <a class="btn-outline" href="/images/logo.jpeg" download>Download Logo</a>
