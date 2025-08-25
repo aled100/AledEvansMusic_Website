@@ -1,38 +1,88 @@
-
 ---
 import Base from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../content/site.json';
 ---
+
 <Base title="Contact — Aled Evans" description={site.metaDescription}>
   <Header />
+
   <main class="section">
-    <div class="container max-w-2xl">
-      <h1 class="h2 font-serif mb-6">Check My Date</h1>
-      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid gap-4 bg-white p-6 rounded-md ring-1 ring-coal/10">
-        <input type="hidden" name="form-name" value="enquiry" />
+    <div class="container max-w-3xl">
+      <h1 class="h2 font-serif mb-6">Check My Date / Enquire</h1>
+      <p class="lead mb-8">Tell me a bit about your event and I’ll get back to you quickly.</p>
+
+      <!-- Netlify form: static HTML so Netlify can parse at build -->
+      <form
+        name="contact"
+        method="POST"
+        action="/thank-you"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="grid gap-4"
+      >
+        <!-- Required hidden input -->
+        <input type="hidden" name="form-name" value="contact" />
+        <!-- Honeypot (hidden to humans) -->
         <p class="hidden">
-          <label>Don’t fill this out: <input name="bot-field" /></label>
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
         </p>
-        <label class="small">Name <input class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="name" required /></label>
-        <label class="small">Email <input type="email" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="email" required /></label>
-        <label class="small">Phone <input class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="phone" /></label>
-        <label class="small">Event date <input type="date" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="date" required /></label>
-        <label class="small">Venue <input class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="venue" /></label>
-        <label class="small">Guests <input type="number" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="guests" /></label>
-        <label class="small">Services
-          <select name="services" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20">
-            <option>Ceremony Acoustic</option>
-            <option>Drinks Reception</option>
-            <option>Evening DJ</option>
-            <option>All Day Package</option>
-          </select>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <label class="grid gap-2">
+            <span>Name *</span>
+            <input class="ring-1 ring-coal/20 rounded px-3 py-2" type="text" name="name" required />
+          </label>
+          <label class="grid gap-2">
+            <span>Email *</span>
+            <input class="ring-1 ring-coal/20 rounded px-3 py-2" type="email" name="email" required />
+          </label>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <label class="grid gap-2">
+            <span>Event date *</span>
+            <input class="ring-1 ring-coal/20 rounded px-3 py-2" type="date" name="event_date" required />
+          </label>
+          <label class="grid gap-2">
+            <span>Venue</span>
+            <input class="ring-1 ring-coal/20 rounded px-3 py-2" type="text" name="venue" />
+          </label>
+          <label class="grid gap-2">
+            <span>Location / Town</span>
+            <input class="ring-1 ring-coal/20 rounded px-3 py-2" type="text" name="location" />
+          </label>
+        </div>
+
+        <fieldset class="grid gap-2">
+          <legend class="small">Services interested in</legend>
+          <div class="grid md:grid-cols-3 gap-2">
+            <label class="inline-flex items-center gap-2">
+              <input type="checkbox" name="services" value="Ceremony Acoustic" />
+              <span>Ceremony Acoustic</span>
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input type="checkbox" name="services" value="Drinks Reception" />
+              <span>Drinks Reception</span>
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input type="checkbox" name="services" value="Evening DJ" />
+              <span>Evening DJ</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label class="grid gap-2">
+          <span>Message *</span>
+          <textarea class="ring-1 ring-coal/20 rounded px-3 py-2" name="message" rows="5" required></textarea>
         </label>
-        <label class="small">Message <textarea rows="5" class="w-full mt-1 px-3 py-2 rounded-md ring-1 ring-coal/20" name="message"></textarea></label>
-        <button class="btn" type="submit">Send Enquiry</button>
+
+        <button type="submit" class="btn w-full md:w-auto">Send Enquiry</button>
+        <p class="small mt-2">I’ll reply from <strong>aled@aledevansmusic.com</strong>.</p>
       </form>
     </div>
   </main>
+
   <Footer />
 </Base>
