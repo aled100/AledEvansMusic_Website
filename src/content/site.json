@@ -10,14 +10,15 @@
     "headline": "Acoustic Singer & DJ",
     "subhead": "Elegant live acoustic singer + DJ for modern UK weddings across South Wales and beyond."
   },
-  "nav": [
+"nav": [
   { "label": "About", "url": "/about" },
   { "label": "Media", "url": "/media" },
   { "label": "Services", "url": "/services" },
-  { "label": "FAQ", "url": "/faq" },
+  { "label": "Songlist", "url": "/songlist" },
   { "label": "Christmas 2025", "url": "/Christmas2025" },
   { "label": "Contact", "url": "/contact" }
 ],
+
 
   "highlights": [
     "Acoustic sets for ceremony & drinks",
