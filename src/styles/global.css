@@ -1,31 +1,128 @@
-
+/* Tailwind base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: light;
+/* =========================
+   Base (globals, typography)
+   ========================= */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html, body {
+    @apply bg-ivory text-coal;
+  }
+
+  a {
+    @apply underline decoration-gold/40 underline-offset-4 hover:decoration-gold;
+  }
+
+  /* Type scale */
+  .h1 { @apply font-serif text-4xl md:text-5xl leading-tight; }
+  .h2 { @apply font-serif text-2xl md:text-3xl leading-snug; }
+  .lead { @apply text-base md:text-lg text-coal/80; }
+  .small { @apply text-sm text-coal/70; }
 }
 
-html, body {
-  @apply bg-ivory text-coal;
+/* =========================
+   Components (buttons, layout)
+   ========================= */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full border border-coal/10 bg-coal text-ivory px-5 py-3 text-sm font-semibold tracking-wide hover:bg-coal/90 transition;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-coal/20 bg-transparent text-coal px-5 py-3 text-sm font-semibold tracking-wide hover:bg-coal/5 transition;
+  }
+
+  /* Focus ring for keyboard users */
+  .btn:focus-visible,
+  .btn-outline:focus-visible,
+  a:focus-visible {
+    @apply outline-none ring-2 ring-offset-2 ring-gold/60 ring-offset-ivory;
+  }
+
+  .container {
+    @apply max-w-6xl mx-auto px-4;
+  }
+  .section {
+    @apply py-12 md:py-16;
+  }
+
+  /* Hero wrapper (positioning context) */
+  .hero {
+    @apply relative;
+  }
+
+  /* Frosted plaque that hugs only the text block */
+  .hero__plaque {
+    position: relative;
+    display: inline-block;    /* size to content */
+    isolation: isolate;       /* keep pseudo behind text */
+    z-index: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+  }
+  .hero__plaque::before {
+    content: "";
+    position: absolute;
+    inset: -0.75rem;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 1rem;
+    background: radial-gradient(
+      120% 120% at 50% 50%,
+      rgba(255,255,255,0.85) 0%,
+      rgba(255,255,255,0.65) 35%,
+      rgba(255,255,255,0) 70%
+    );
+    filter: blur(2px);
+  }
 }
 
-a { @apply underline decoration-gold/40 underline-offset-4 hover:decoration-gold; }
+/* =========================
+   Utilities (halos & effects)
+   ========================= */
+@layer utilities {
+  /* Option A: Block/area halo behind a content block */
+  .hero__content {
+    position: relative;
+    isolation: isolate; /* keep pseudo behind text */
+    z-index: 1;
+  }
+  .hero__content::before {
+    content: "";
+    position: absolute;
+    inset: -1.5rem; /* expand halo around the block */
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      120% 120% at 50% 50%,
+      rgba(255,255,255,0.85) 0%,
+      rgba(255,255,255,0.65) 35%,
+      rgba(255,255,255,0) 70%
+    );
+    filter: blur(2px);
+    border-radius: 1rem;
+  }
 
-.btn {
-  @apply inline-flex items-center justify-center rounded-full border border-coal/10 bg-coal text-ivory px-5 py-3 text-sm font-semibold tracking-wide hover:bg-coal/90 transition;
+  /* Option B: Per-letter halo */
+  .text-halo {
+    text-shadow:
+      0 2px 8px rgba(255,255,255,0.8),
+      0 0 1px rgba(255,255,255,0.6);
+    -webkit-text-stroke: 0.2px rgba(255,255,255,0.5); /* Safari/iOS */
+    paint-order: stroke fill;
+  }
+
+  /* Respect motion preferences for any future animations */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
-.btn-outline {
-  @apply inline-flex items-center justify-center rounded-full border border-coal/20 bg-transparent text-coal px-5 py-3 text-sm font-semibold tracking-wide hover:bg-coal/5 transition;
-}
-.container {
-  @apply max-w-6xl mx-auto px-4;
-}
-.section {
-  @apply py-12 md:py-16;
-}
-.h1 { @apply font-serif text-4xl md:text-5xl leading-tight; }
-.h2 { @apply font-serif text-2xl md:text-3xl leading-snug; }
-.lead { @apply text-base md:text-lg text-coal/80; }
-.small { @apply text-sm text-coal/70; }
