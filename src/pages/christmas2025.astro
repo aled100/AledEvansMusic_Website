@@ -2,6 +2,43 @@
 import Base from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+// 🔧 EDIT THIS: add/remove booked dates (ISO format YYYY-MM-DD)
+const booked = new Set([
+  "2025-12-06",
+  "2025-12-12",
+  // "2025-12-31",
+  // "2026-01-01",
+]);
+
+// Helpers
+const mondayIndex = (d) => (d.getDay() + 6) % 7; // Monday=0 … Sunday=6
+const iso = (d) => d.toISOString().slice(0, 10);
+
+function monthGrid(year, monthIndex) {
+  // Build an array of Date objects + null padding to align Mondays
+  const first = new Date(year, monthIndex, 1);
+  const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+  const startPad = mondayIndex(first); // blanks before day 1
+
+  const cells = Array.from({ length: startPad }, () => null);
+  for (let day = 1; day <= daysInMonth; day++) {
+    cells.push(new Date(year, monthIndex, day));
+  }
+  // pad trailing so total length is multiple of 7
+  while (cells.length % 7 !== 0) cells.push(null);
+  return cells;
+}
+
+const dec2025 = monthGrid(2025, 11); // December 2025
+
+// First week spanning 29 Dec 2025 → 4 Jan 2026 (Mon–Sun)
+const janStart = new Date(2025, 11, 29); // Mon 29 Dec 2025
+const janWeek = Array.from({ length: 7 }, (_, i) => {
+  const d = new Date(janStart);
+  d.setDate(janStart.getDate() + i);
+  return d;
+});
 ---
 
 <Base title="Christmas 2025 — Aled Evans" description="Festive live music and DJ packages for Christmas parties 2025.">
@@ -69,7 +106,7 @@ import Footer from '../components/Footer.astro';
         <p>Curated Christmas playlist during the breaks, so the festive atmosphere never dips.</p>
       </section>
 
-      <!-- ✅ New Christmas Songlist section -->
+      <!-- ✅ Christmas Songlist -->
       <section>
         <h2 class="h3 font-serif mb-4">✨ Here’s an example of the acoustic songs I’ll be playing</h2>
         <ul class="list-disc list-inside space-y-1">
@@ -81,6 +118,87 @@ import Footer from '../components/Footer.astro';
           <li>Do They Know It’s Christmas? — Band Aid</li>
           <li>Santa Claus is Comin’ to Town — Bruce Springsteen</li>
         </ul>
+      </section>
+
+      <!-- ✅ Availability Calendar -->
+      <section>
+        <h2 class="h3 font-serif mb-6">Availability — December 2025 & Early January 2026</h2>
+
+        <!-- Legend -->
+        <div class="flex items-center gap-4 mb-4 text-sm">
+          <div class="flex items-center gap-2">
+            <span class="inline-block h-3 w-3 rounded bg-emerald-200 ring-1 ring-emerald-400/40"></span>
+            <span>Available</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="inline-block h-3 w-3 rounded bg-rose-200 ring-1 ring-rose-400/40"></span>
+            <span>Booked</span>
+          </div>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          <!-- December 2025 -->
+          <div>
+            <div class="flex items-baseline justify-between mb-3">
+              <h3 class="font-serif text-xl">December 2025</h3>
+              <div class="small text-coal/70">Mon — Sun</div>
+            </div>
+            <div class="grid grid-cols-7 gap-1 text-center small text-coal/70 mb-1">
+              <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+            </div>
+            <div class="grid grid-cols-7 gap-1">
+              {dec2025.map((d) => {
+                if (!d) return <div class="h-12 rounded bg-transparent"></div>;
+                const dayISO = iso(d);
+                const isBooked = booked.has(dayISO);
+                return (
+                  <div class={`relative h-12 rounded ring-1 ${isBooked
+                      ? 'bg-rose-200 ring-rose-400/40 text-coal'
+                      : 'bg-emerald-200 ring-emerald-400/40 text-coal'}`}>
+                    <div class="absolute top-1 left-1 text-xs font-semibold">{d.getDate()}</div>
+                    {isBooked && (
+                      <svg viewBox="0 0 24 24" class="absolute inset-0 m-auto h-6 w-6 opacity-50">
+                        <path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <!-- First week of Jan 2026 -->
+          <div>
+            <div class="flex items-baseline justify-between mb-3">
+              <h3 class="font-serif text-xl">Week of 29 Dec → 4 Jan</h3>
+              <div class="small text-coal/70">Mon — Sun</div>
+            </div>
+            <div class="grid grid-cols-7 gap-1 text-center small text-coal/70 mb-1">
+              <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+            </div>
+            <div class="grid grid-cols-7 gap-1">
+              {janWeek.map((d) => {
+                const dayISO = iso(d);
+                const isBooked = booked.has(dayISO);
+                return (
+                  <div class={`relative h-12 rounded ring-1 ${isBooked
+                      ? 'bg-rose-200 ring-rose-400/40 text-coal'
+                      : 'bg-emerald-200 ring-emerald-400/40 text-coal'}`}>
+                    <div class="absolute top-1 left-1 text-xs font-semibold">
+                      {d.getDate()}{d.getMonth() === 0 ? <span class="small"> Jan</span> : null}
+                    </div>
+                    {isBooked && (
+                      <svg viewBox="0 0 24 24" class="absolute inset-0 m-auto h-6 w-6 opacity-50">
+                        <path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <p class="small mt-2 text-coal/70">Covers 29–31 Dec 2025 and 1–4 Jan 2026.</p>
+          </div>
+        </div>
       </section>
 
       <div>

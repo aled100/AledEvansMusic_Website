@@ -1,16 +1,55 @@
-
 ---
 import Base from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<Base title="FAQs — Aled Evans" description="Answers to common questions about setup, insurance, requests and more.">
+
+<Base title="FAQ — Aled Evans" description="Frequently asked questions about booking Aled Evans as your acoustic singer & DJ.">
   <Header />
+
   <main class="section">
-    <div class="container prose max-w-3xl">
-      <h1 class="h2 font-serif">FAQs</h1>
-      <p class="small">Add your FAQs here (setup time, PAT/PLI, breaks, playlists, noise limit, attire, overtime rates, booking & deposit, etc.).</p>
+    <div class="container">
+      <h1 class="h2 font-serif mb-8">Frequently Asked Questions</h1>
+
+      <div class="space-y-6">
+        <!-- Example FAQ item -->
+        <div class="border-b border-coal/10 pb-4">
+          <h2 class="font-semibold text-lg mb-2">How far do you travel?</h2>
+          <p class="text-coal/80">
+            I’m based in South Wales and regularly perform across Cardiff, Swansea, and Bristol. I’m also available for weddings and events UK-wide — just ask!
+          </p>
+        </div>
+
+        <div class="border-b border-coal/10 pb-4">
+          <h2 class="font-semibold text-lg mb-2">Do you take song requests?</h2>
+          <p class="text-coal/80">
+            Absolutely — I’m happy to learn a few special requests, especially for first dances or aisle walks. For DJ sets, I can tailor the playlist to your tastes.
+          </p>
+        </div>
+
+        <div class="border-b border-coal/10 pb-4">
+          <h2 class="font-semibold text-lg mb-2">What equipment do you provide?</h2>
+          <p class="text-coal/80">
+            I bring professional sound equipment and lighting for both acoustic and DJ sets. All I need from the venue is a power supply.
+          </p>
+        </div>
+
+        <div class="border-b border-coal/10 pb-4">
+          <h2 class="font-semibold text-lg mb-2">Can you perform both acoustic and DJ sets in one package?</h2>
+          <p class="text-coal/80">
+            Yes — many couples book me for the full day: live acoustic music for the ceremony and drinks, then DJing for the evening party.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg mb-2">How do we book you?</h2>
+          <p class="text-coal/80">
+            Simply <a href="/contact" class="underline decoration-gold/40 hover:decoration-gold">get in touch via my contact page</a> with your date and details. I’ll confirm availability and send over booking info.
+          </p>
+        </div>
+      </div>
     </div>
   </main>
+
   <Footer />
 </Base>

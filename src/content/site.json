@@ -14,6 +14,7 @@
   { "label": "About", "url": "/about" },
   { "label": "Media", "url": "/media" },
   { "label": "Services", "url": "/services" },
+  { "label": "FAQ", "url": "/faq" },
   { "label": "Songlist", "url": "/songlist" },
   { "label": "Christmas 2025", "url": "/Christmas2025" },
   { "label": "Contact", "url": "/contact" }
@@ -34,7 +35,8 @@
     "With over 30 years experience of performing music on stage, he has developed an instinct for reading the room, he creates intimate, singalong moments for ceremonies, drinks receptions, and evening entertainment.",
     "Beyond live performance, Aled brings energy to the dancefloor from behind the decks as well as the guitar as a DJ. From timeless wedding anthems to modern chart-toppers, his carefully crafted DJ sets keep guests of all ages dancing late into the night.",
     "All equpiment is PAT tested and Public Liability Insurance is covered.",
-    "Aled comes fully self contained, with industry standard PA, lighting and music production equipment"
+    "Aled comes fully self contained, with industry standard PA, lighting and music production equipment",
+    "Event UK and C247 Registered"
   ],
     "photo": "/images/5.jpeg"
   },
@@ -166,6 +168,7 @@
       { "title": "First Date", "artist": "Blink-182", "year": 2001 },
       { "title": "Handbags and Gladrags", "artist": "Stereophonics", "year": 2001 },
       { "title": "Buck Rogers", "artist": "Feeder", "year": 2001 },
+      { "title": "Come Undone", "artist": "Robbie Williams", "year": 2012 },
       { "title": "Complicated", "artist": "Avril Lavigne", "year": 2002 },
       { "title": "The Scientist", "artist": "Coldplay", "year": 2002 },
       { "title": "Mr. Brightside", "artist": "The Killers", "year": 2003 },
@@ -186,15 +189,12 @@
       { "title": "Little Lion Man", "artist": "Mumford & Sons", "year": 2009 }
     ],
     "2010s": [
-      { "title": "Candy", "artist": "Robbie Williams", "year": 2012 },
       { "title": "Blame It on Me", "artist": "George Ezra", "year": 2014 },
       { "title": "Shut Up and Dance", "artist": "WALK THE MOON", "year": 2014 },
       { "title": "Adventure of a Lifetime", "artist": "Coldplay", "year": 2015 },
       { "title": "Hold My Girl", "artist": "George Ezra", "year": 2018 },
       { "title": "Will We Talk?", "artist": "Sam Fender", "year": 2019 },
-      { "title": "Canter", "artist": "Gerry Cinnamon", "year": 2019 }
-    ],
-    "2020s": [
+      { "title": "Canter", "artist": "Gerry Cinnamon", "year": 2019 },
       { "title": "Stick Season", "artist": "Noah Kahan", "year": 2022 }
     ]
   }
