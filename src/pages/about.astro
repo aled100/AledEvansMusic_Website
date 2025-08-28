@@ -22,6 +22,24 @@ import site from '../content/site.json';
           <p class="lead whitespace-pre-line">{site.about.long}</p>
         )}
 
+        {/* Biography */}
+        {site.about.bio && (
+          <>
+            <h2 class="h2 font-serif mt-8 mb-4">Biography</h2>
+
+            {Array.isArray(site.about.bio) ? (
+              <div class="space-y-4">
+                {site.about.bio.map((p) => (
+                  <p>{p}</p>
+                ))}
+              </div>
+            ) : (
+              // Fallback: if bio is provided as a single string, preserve line breaks
+              <p class="whitespace-pre-line">{site.about.bio}</p>
+            )}
+          </>
+        )}
+
         <div class="mt-6 grid sm:grid-cols-2 gap-3">
           <a class="btn-outline" href="/images/1.jpeg" download>Download Press Photo</a>
           <a class="btn-outline" href="/images/logo.jpeg" download>Download Logo</a>
