@@ -4,16 +4,19 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 // 🔧 EDIT THIS: add/remove booked dates (ISO format YYYY-MM-DD)
+// You can include November dates now as well (e.g. "2025-11-29")
 const booked = new Set([
   "2025-12-06",
   "2025-12-12",
-  // "2025-12-31",
+  "2025-11-22",
+  "2025-12-13",
   // "2026-01-01",
 ]);
 
 // Helpers
 const mondayIndex = (d) => (d.getDay() + 6) % 7; // Monday=0 … Sunday=6
 const iso = (d) => d.toISOString().slice(0, 10);
+const inRange = (d, start, end) => d >= start && d <= end;
 
 function monthGrid(year, monthIndex) {
   // Build an array of Date objects + null padding to align Mondays
@@ -30,9 +33,14 @@ function monthGrid(year, monthIndex) {
   return cells;
 }
 
+// Coverage range: 10 Nov 2025 → 4 Jan 2026
+const rangeStart = new Date(2025, 10, 10); // 10 Nov 2025
+const rangeEnd   = new Date(2026, 0, 4);   // 04 Jan 2026
+
+const nov2025 = monthGrid(2025, 10); // November 2025
 const dec2025 = monthGrid(2025, 11); // December 2025
 
-// First week spanning 29 Dec 2025 → 4 Jan 2026 (Mon–Sun)
+// Week spanning 29 Dec 2025 → 4 Jan 2026 (Mon–Sun)
 const janStart = new Date(2025, 11, 29); // Mon 29 Dec 2025
 const janWeek = Array.from({ length: 7 }, (_, i) => {
   const d = new Date(janStart);
@@ -122,7 +130,7 @@ const janWeek = Array.from({ length: 7 }, (_, i) => {
 
       <!-- ✅ Availability Calendar -->
       <section>
-        <h2 class="h3 font-serif mb-6">Availability — December 2025 & Early January 2026</h2>
+        <h2 class="h3 font-serif mb-6">Availability — 10 Nov 2025 to 4 Jan 2026</h2>
 
         <!-- Legend -->
         <div class="flex items-center gap-4 mb-4 text-sm">
@@ -134,9 +142,55 @@ const janWeek = Array.from({ length: 7 }, (_, i) => {
             <span class="inline-block h-3 w-3 rounded bg-rose-200 ring-1 ring-rose-400/40"></span>
             <span>Booked</span>
           </div>
+          <div class="flex items-center gap-2">
+            <span class="inline-block h-3 w-3 rounded bg-transparent ring-1 ring-coal/10"></span>
+            <span>Out of range</span>
+          </div>
         </div>
 
         <div class="grid gap-8 md:grid-cols-2">
+          <!-- November 2025 -->
+          <div>
+            <div class="flex items-baseline justify-between mb-3">
+              <h3 class="font-serif text-xl">November 2025</h3>
+              <div class="small text-coal/70">Mon — Sun</div>
+            </div>
+            <div class="grid grid-cols-7 gap-1 text-center small text-coal/70 mb-1">
+              <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+            </div>
+            <div class="grid grid-cols-7 gap-1">
+              {nov2025.map((d) => {
+                if (!d) return <div class="h-12 rounded bg-transparent"></div>;
+                const dayISO = iso(d);
+                const inWindow = inRange(d, rangeStart, rangeEnd);
+                const isBooked = inWindow && booked.has(dayISO);
+
+                // Out-of-range days (1st–9th Nov) shown muted
+                if (!inWindow) {
+                  return (
+                    <div class="relative h-12 rounded bg-transparent ring-1 ring-coal/10 text-coal/40">
+                      <div class="absolute top-1 left-1 text-xs font-semibold">{d.getDate()}</div>
+                    </div>
+                  );
+                }
+
+                return (
+                  <div class={`relative h-12 rounded ring-1 ${isBooked
+                    ? 'bg-rose-200 ring-rose-400/40 text-coal'
+                    : 'bg-emerald-200 ring-emerald-400/40 text-coal'}`}>
+                    <div class="absolute top-1 left-1 text-xs font-semibold">{d.getDate()}</div>
+                    {isBooked && (
+                      <svg viewBox="0 0 24 24" class="absolute inset-0 m-auto h-6 w-6 opacity-50">
+                        <path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <p class="small mt-2 text-coal/70">Covers 10–30 Nov 2025.</p>
+          </div>
+
           <!-- December 2025 -->
           <div>
             <div class="flex items-baseline justify-between mb-3">
@@ -167,7 +221,7 @@ const janWeek = Array.from({ length: 7 }, (_, i) => {
             </div>
           </div>
 
-          <!-- First week of Jan 2026 -->
+          <!-- First week of Jan 2026 (now same width as months) -->
           <div>
             <div class="flex items-baseline justify-between mb-3">
               <h3 class="font-serif text-xl">Week of 29 Dec → 4 Jan</h3>
@@ -179,7 +233,17 @@ const janWeek = Array.from({ length: 7 }, (_, i) => {
             <div class="grid grid-cols-7 gap-1">
               {janWeek.map((d) => {
                 const dayISO = iso(d);
-                const isBooked = booked.has(dayISO);
+                const inWindow = inRange(d, rangeStart, rangeEnd);
+                const isBooked = inWindow && booked.has(dayISO);
+
+                if (!inWindow) {
+                  return (
+                    <div class="relative h-12 rounded bg-transparent ring-1 ring-coal/10 text-coal/40">
+                      <div class="absolute top-1 left-1 text-xs font-semibold">{d.getDate()}</div>
+                    </div>
+                  );
+                }
+
                 return (
                   <div class={`relative h-12 rounded ring-1 ${isBooked
                       ? 'bg-rose-200 ring-rose-400/40 text-coal'
