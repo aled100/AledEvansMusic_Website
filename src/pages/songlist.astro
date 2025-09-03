@@ -4,8 +4,17 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../content/site.json';
 
-// Get decade order you want to show
+// Decade order to display
 const decadeOrder = ["1960s","1970s","1980s","1990s","2000s","2010s","2020s"];
+
+// Defensive fallbacks
+const firstDanceIdeas = Array.isArray(site?.songlist?.firstDanceIdeas)
+  ? site.songlist.firstDanceIdeas
+  : [];
+
+const songsByDecade = site?.songlist?.songsByDecade ?? {};
+const getDecadeSongs = (d) =>
+  Array.isArray(songsByDecade[d]) ? songsByDecade[d] : [];
 ---
 <Base title="Song List — Aled Evans" description={site.metaDescription}>
   <Header />
@@ -16,26 +25,33 @@ const decadeOrder = ["1960s","1970s","1980s","1990s","2000s","2010s","2020s"];
       <!-- First Dance -->
       <section class="mb-10">
         <h2 class="h3 font-serif mb-2">First Dance Ideas</h2>
-        <ul class="grid sm:grid-cols-2 gap-y-2">
-          {site.songlist.firstDanceIdeas.map((t) => (
-            <li class="leading-relaxed">{t}</li>
-          ))}
-        </ul>
+        {firstDanceIdeas.length ? (
+          <ul class="grid sm:grid-cols-2 gap-y-2">
+            {firstDanceIdeas.map((t) => (
+              <li class="leading-relaxed">{t}</li>
+            ))}
+          </ul>
+        ) : (
+          <p class="opacity-70">First dance ideas coming soon.</p>
+        )}
       </section>
 
       <!-- Decades -->
-      {decadeOrder.map((decade) => (
-        site.songlist.songsByDecade[decade] && (
+      {decadeOrder.map((decade) => {
+        const songs = getDecadeSongs(decade);
+        return songs.length ? (
           <section class="mb-10" id={decade}>
             <h2 class="h3 font-serif mb-2">{decade}</h2>
             <ul class="grid sm:grid-cols-2 gap-y-2">
-              {site.songlist.songsByDecade[decade].map((s) => (
-                <li class="leading-relaxed">{s.title} — {s.artist} <span class="text-sm text-gray-500">({s.year})</span></li>
+              {songs.map((s) => (
+                <li class="leading-relaxed">
+                  {s.title} — {s.artist} <span class="text-sm text-gray-500">({s.year})</span>
+                </li>
               ))}
             </ul>
           </section>
-        )
-      ))}
+        ) : null;
+      })}
     </div>
   </main>
   <Footer />

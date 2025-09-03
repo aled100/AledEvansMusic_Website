@@ -1,10 +1,14 @@
 ---
-import '../styles/global.css';   // ✅ Import CSS properly so Astro/Vite bundles it
+import '../styles/global.css';
+import site from '../content/site.json';
+
 const { 
   title = 'Aled Evans — Acoustic Singer', 
   description = 'Elegant live acoustic + DJ for modern UK weddings', 
   metaImage = '/images/1.jpeg' 
 } = Astro.props;
+
+const googleVerify = site.verification?.google;
 ---
 <!doctype html>
 <html lang="en">
@@ -13,6 +17,8 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {googleVerify && <meta name="google-site-verification" content={googleVerify} />}
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -29,7 +35,6 @@ const {
     </script>
   </head>
   <body class="font-sans">
-    <!-- Add responsive top padding to clear the sticky header -->
     <main class="pt-20 md:pt-24">
       <slot />
     </main>
