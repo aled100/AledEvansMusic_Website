@@ -1,4 +1,3 @@
-
 ---
 import Base from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
@@ -12,6 +11,7 @@ import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 import site from '../content/site.json';
 ---
+
 <Base title="Aled Evans — Acoustic Singer" description={site.metaDescription}>
   <Header />
   <Hero />
@@ -21,5 +21,20 @@ import site from '../content/site.json';
   <MediaPreview />
   <SonglistPreview />
   <FinalCTA />
+
+  <!-- ✅ Encore Verified Badge -->
+  <section class="flex justify-center py-10">
+    <a
+      href="https://encoremusicians.com/hire/singing-guitarists?utm_source=badge&utm_medium=web&utm_campaign=verified_badge&utm_content=green-medium"
+      target="_parent"
+    >
+      <img
+        src="https://encoremusicians.com/img/embeds/badge-green.svg"
+        alt="Book Aled Evans on Encore Musicians"
+        style="width: 100px; height: 100px;"
+      />
+    </a>
+  </section>
+
   <Footer />
 </Base>
