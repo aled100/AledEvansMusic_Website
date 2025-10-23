@@ -8,3 +8,6 @@
 
 [dev]
   command = "npm run dev"
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
