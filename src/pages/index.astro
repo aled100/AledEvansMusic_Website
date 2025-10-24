@@ -7,6 +7,7 @@ import AboutPreview from '../components/AboutPreview.astro';
 import ServicesPreview from '../components/ServicesPreview.astro';
 import MediaPreview from '../components/MediaPreview.astro';
 import SonglistPreview from '../components/SonglistPreview.astro';
+import GoogleStyleReview from '../components/GoogleStyleReview.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 import site from '../content/site.json';
@@ -20,6 +21,31 @@ import site from '../content/site.json';
   <ServicesPreview />
   <MediaPreview />
   <SonglistPreview />
+
+  <!-- ✅ Manually pasted Google-style review -->
+<!-- Consistent indent with other sections -->
+<section class="section">
+  <div class="container">
+    <h2 class="font-serif text-3xl mb-4">What clients say</h2>
+  </div>
+
+  <!-- Keep the card centered but within the same page gutter -->
+  <div class="container">
+    <GoogleStyleReview
+      text={`We were extremely happy with Aled’s performance at our daughter’s 18th birthday celebrations. 
+His professionalism stood out from the outset – he sent over a selection of curated playlists allowing us to tailor the music to suit the vibe of the evening.
+
+On the night he got the crowd up dancing and created a lively, joyful atmosphere – he even stayed a little longer and played extra songs on request. 
+Thank you Aled for making an unforgettable night for our daughter’s special birthday.`}
+      author="Karen Jones"
+      rating={5}
+      date="22 Oct 2025"
+      readUrl="https://maps.google.com/?cid=14232761385348644078"
+      leaveUrl="https://g.page/r/Ce48mlIS7YTFEBM/review"
+    />
+  </div>
+</section>
+
   <FinalCTA />
 
   <!-- ✅ Encore Verified Badge -->

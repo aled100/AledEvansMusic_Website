@@ -1,0 +1,66 @@
+---
+const {
+  text,
+  author,
+  rating = 5,
+  date = "",
+  photo,
+  readUrl = "https://maps.google.com/?cid=14232761385348644078",
+  leaveUrl = "https://g.page/r/Ce48mlIS7YTFEBM/review",
+} = Astro.props;
+
+const stars = Math.max(0, Math.min(5, Math.round(Number(rating))));
+const starLine = "★★★★★".slice(0, stars);
+
+const initial = author?.charAt(0)?.toUpperCase() || "?";
+---
+<section class="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-[#1A1A1A] p-6 shadow">
+  <!-- ⭐️ Rating stars -->
+  <div class="mb-3 text-2xl text-[color:var(--color-gold,#C6A867)] tracking-wide">
+    {starLine}
+  </div>
+
+  <!-- Reviewer details -->
+  <header class="mb-3 flex items-center gap-3">
+    {photo ? (
+      <img src={photo} alt="" class="h-10 w-10 rounded-full" />
+    ) : (
+      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-white font-semibold">
+        {initial}
+      </div>
+    )}
+    <div>
+      <div class="font-medium text-[color:var(--color-ivory,#F7F6F2)]">{author}</div>
+      {date && <div class="text-xs text-white/60">{date}</div>}
+    </div>
+  </header>
+
+  <!-- Review text -->
+  <div class="mb-5 text-[15px] leading-relaxed text-white/90 whitespace-pre-line">
+    {text}
+  </div>
+
+  <!-- Buttons -->
+  <div class="flex flex-wrap gap-3">
+    <a
+      href={readUrl}
+      target="_blank"
+      rel="noopener"
+      class="rounded-lg border border-white/30 text-white/90 px-3 py-2 text-sm hover:border-white/60 transition-colors"
+    >
+      Read on Google
+    </a>
+    <a
+      href={leaveUrl}
+      target="_blank"
+      rel="noopener"
+      class="rounded-lg bg-[color:var(--color-gold,#C6A867)] px-3 py-2 text-sm font-medium text-[color:var(--color-coal,#1A1A1A)] hover:opacity-90"
+    >
+      Leave a Review
+    </a>
+  </div>
+
+  <p class="mt-4 text-[11px] text-white/50">
+    *Manually added from a client review.
+  </p>
+</section>
