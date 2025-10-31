@@ -1,0 +1,144 @@
+---
+/**
+ * ReviewsCarousel.astro
+ * Props:
+ *  - items: Array<{ text: string, author: string, rating?: number, date?: string, photo?: string }>
+ *  - readUrl?: string  (default: your Google CID link)
+ *  - leaveUrl?: string (default: your write-a-review link)
+ *
+ * Paste your reviews into the items array where you use this component.
+ */
+const {
+  items = [],
+  readUrl = "https://maps.google.com/?cid=14232761385348644078",
+  leaveUrl = "https://g.page/r/Ce48mlIS7YTFEBM/review",
+} = Astro.props;
+
+const clampStars = (n: number | undefined) =>
+  Math.max(0, Math.min(5, Math.round(Number(n ?? 5))));
+---
+
+<section class="mx-auto w-full max-w-4xl">
+  <!-- VIEWPORT -->
+  <div class="relative">
+    <!-- Slides wrapper -->
+    <div id="rvw-track" class="overflow-hidden rounded-2xl">
+      <!-- Slides (one visible at a time, controlled via translateX) -->
+      <div id="rvw-slides" class="flex transition-transform duration-300 ease-out will-change-transform">
+        {items.map((item, i) => {
+          const stars = "★★★★★".slice(0, clampStars(item.rating));
+          const initial = (item.author?.charAt(0) ?? "?").toUpperCase();
+          return (
+            <div class="min-w-full p-1" data-index={i}>
+              <article class="rounded-2xl border border-white/10 bg-[#1A1A1A] p-6 shadow">
+                <!-- Stars -->
+                <div class="mb-3 text-2xl text-[color:var(--color-gold,#C6A867)] tracking-wide">{stars}</div>
+
+                <!-- Reviewer row -->
+                <header class="mb-3 flex items-center gap-3">
+                  {item.photo ? (
+                    <img src={item.photo} alt="" class="h-10 w-10 rounded-full" />
+                  ) : (
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-white font-semibold">
+                      {initial}
+                    </div>
+                  )}
+                  <div>
+                    <div class="font-medium text-[color:var(--color-ivory,#F7F6F2)]">{item.author}</div>
+                    {item.date && <div class="text-xs text-white/60">{item.date}</div>}
+                  </div>
+                </header>
+
+                <!-- Review text -->
+                <div class="mb-5 whitespace-pre-line text-[15px] leading-relaxed text-white/90">{item.text}</div>
+
+                <!-- Buttons -->
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    href={readUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="rounded-lg border border-white/30 text-white/90 px-3 py-2 text-sm hover:border-white/60 transition-colors"
+                  >Read on Google</a>
+                  <a
+                    href={leaveUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="rounded-lg bg-[color:var(--color-gold,#C6A867)] px-3 py-2 text-sm font-medium text-[color:var(--color-coal,#1A1A1A)] hover:opacity-90"
+                  >Leave a Review</a>
+                </div>
+
+                <p class="mt-4 text-[11px] text-white/50">*Manually added from a client review.</p>
+              </article>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Prev / Next controls -->
+    <button id="rvw-prev"
+      class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/30 backdrop-blur px-3 py-2 text-sm text-white/80 hover:bg-black/50"
+      aria-label="Previous review">‹</button>
+    <button id="rvw-next"
+      class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/30 backdrop-blur px-3 py-2 text-sm text-white/80 hover:bg-black/50"
+      aria-label="Next review">›</button>
+  </div>
+
+  <!-- Dots -->
+  <div id="rvw-dots" class="mt-4 flex justify-center gap-2">
+    {items.map((_, i) => (
+      <button class="h-2.5 w-2.5 rounded-full border border-white/30 aria-[current=true]:bg-white/90"
+              aria-current={i === 0 ? "true" : "false"} aria-label={`Go to review ${i+1}`} data-dot={i}></button>
+    ))}
+  </div>
+</section>
+
+<script is:inline>
+  // Minimal carousel controller (no libs)
+  (function () {
+    const track = document.getElementById("rvw-track");
+    const slides = document.getElementById("rvw-slides");
+    const prev = document.getElementById("rvw-prev");
+    const next = document.getElementById("rvw-next");
+    const dots = Array.from(document.querySelectorAll("[data-dot]"));
+    if (!track || !slides || !prev || !next || !dots.length) return;
+
+    const count = dots.length;
+    let i = 0;
+
+    function go(to) {
+      i = (to + count) % count;
+      const x = -i * track.clientWidth;
+      slides.style.transform = `translate3d(${x}px,0,0)`;
+      dots.forEach((d, idx) => d.setAttribute("aria-current", idx === i ? "true" : "false"));
+    }
+
+    prev.addEventListener("click", () => go(i - 1));
+    next.addEventListener("click", () => go(i + 1));
+    dots.forEach((d, idx) => d.addEventListener("click", () => go(idx)));
+
+    // Resize handler keeps slide width in sync with container
+    let rid;
+    const onResize = () => { cancelAnimationFrame(rid); rid = requestAnimationFrame(() => go(i)); };
+    window.addEventListener("resize", onResize);
+
+    // Swipe support (touch)
+    let sx = 0, dx = 0, touching = false;
+    track.addEventListener("touchstart", (e) => { touching = true; sx = e.touches[0].clientX; dx = 0; }, {passive:true});
+    track.addEventListener("touchmove",  (e) => { if (!touching) return; dx = e.touches[0].clientX - sx; }, {passive:true});
+    track.addEventListener("touchend",   () => {
+      touching = false;
+      if (Math.abs(dx) > 40) { dx < 0 ? go(i + 1) : go(i - 1); }
+      dx = 0;
+    });
+
+    // Optional: auto-advance every 7s (pause on hover)
+    let timer = setInterval(() => go(i + 1), 7000);
+    track.addEventListener("mouseenter", () => clearInterval(timer));
+    track.addEventListener("mouseleave", () => (timer = setInterval(() => go(i + 1), 7000)));
+
+    // init
+    go(0);
+  })();
+</script>
