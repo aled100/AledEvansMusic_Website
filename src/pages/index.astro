@@ -18,60 +18,82 @@ import site from '../content/site.json';
   <Hero />
   <Highlights />
   <AboutPreview />
-  <ServicesPreview />
-  <MediaPreview />
-  <SonglistPreview />
 
-  <!-- Consistent indent with other sections -->
-<section class="section">
-  <div class="container">
-    <h2 class="font-serif text-3xl mb-4">What clients say</h2>
-  </div>
+  <!-- ✅ What clients say (moved up to replace Packages) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="font-serif text-3xl mb-4">What clients say</h2>
+    </div>
 
-  <div class="container">
-    <ReviewsCarousel
-      items={[
-        {
-          text: `We were extremely happy with Aled’s performance at our daughter’s 18th birthday celebrations. 
+    <div class="container">
+      <ReviewsCarousel
+        items={[
+          {
+            text: `We were extremely happy with Aled’s performance at our daughter’s 18th birthday celebrations. 
 His professionalism stood out from the outset – he sent over a selection of curated playlists allowing us to tailor the music to suit the vibe of the evening.
 
 On the night he got the crowd up dancing and created a lively, joyful atmosphere – he even stayed a little longer and played extra songs on request. 
 Thank you Aled for making an unforgettable night for our daughter’s special birthday.`,
-          author: "Karen Jones",
-          rating: 5,
-          date: "22 Oct 2025"
-        },
-         {
-          text: `Aled performed last Saturday at our corporate event and he was fabulous! He was lovely to listen to and had everyone up dancing and singing along! Can't recommend him highly enough. Thank you, Aled!`,
-          author: "Helen Boyce",
-          rating: 5,
-          date: "29 Oct 2025"
-        },
-        {
-          text: `Fantastic singer who performed at our Sports & Social Club's 90s themed event. Great communication throughout, very accommodating & put on a great show for us. Highly recommended and would book again. 👍`,
-          author: "Eryl Jones.",
-          rating: 5,
-          date: "October 2025"
-        }
-      ]}
-      readUrl="https://maps.google.com/?cid=14232761385348644078"
-      leaveUrl="https://g.page/r/Ce48mlIS7YTFEBM/review"
-    />
-  </div>
-</section>
+            author: "Karen Jones",
+            rating: 5,
+            date: "22 Oct 2025"
+          },
+          {
+            text: `Aled performed last Saturday at our corporate event and he was fabulous! He was lovely to listen to and had everyone up dancing and singing along! Can't recommend him highly enough. Thank you, Aled!`,
+            author: "Helen Boyce",
+            rating: 5,
+            date: "29 Oct 2025"
+          },
+          {
+            text: `Fantastic singer who performed at our Sports & Social Club's 90s themed event. Great communication throughout, very accommodating & put on a great show for us. Highly recommended and would book again. 👍`,
+            author: "Eryl Jones.",
+            rating: 5,
+            date: "October 2025"
+          }
+        ]}
+        readUrl="https://maps.google.com/?cid=14232761385348644078"
+        leaveUrl="https://g.page/r/Ce48mlIS7YTFEBM/review"
+      />
+    </div>
+  </section>
+
+  <!-- Remaining content stays in sequence -->
+  <MediaPreview />
+  <SonglistPreview />
+
+  <!-- ✅ Packages (moved down to where reviews were) -->
+  <ServicesPreview />
 
   <FinalCTA />
 
-  <!-- ✅ Encore Verified Badge -->
-  <section class="flex justify-center py-10">
+  <!-- ✅ Verified Badges (Encore + Hitched) -->
+  <section class="flex justify-center items-center gap-6 py-10">
+    <!-- Encore badge -->
     <a
       href="https://encoremusicians.com/hire/singing-guitarists?utm_source=badge&utm_medium=web&utm_campaign=verified_badge&utm_content=green-medium"
       target="_parent"
+      aria-label="Book Aled Evans on Encore Musicians"
     >
       <img
         src="https://encoremusicians.com/img/embeds/badge-green.svg"
         alt="Book Aled Evans on Encore Musicians"
-        style="width: 100px; height: 100px;"
+        class="h-24 w-24 md:h-28 md:w-28"
+      />
+    </a>
+
+    <!-- Hitched badge (green/gold version) -->
+    <a
+      rel="nofollow"
+      href="https://www.hitched.co.uk"
+      title="Hitched.co.uk"
+      aria-label="Visit Hitched.co.uk"
+      target="_blank"
+    >
+      <img
+        alt="Hitched.co.uk"
+        src="https://www.hitched.co.uk/images/sellos/partner--gg394411.png"
+        class="h-20 md:h-24 w-auto"
+        style="border-width:0;"
       />
     </a>
   </section>
