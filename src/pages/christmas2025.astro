@@ -2,6 +2,7 @@
 import Base from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ReviewsCarousel from '../components/ReviewsCarousel.astro'; // ✅ added
 
 // 🔧 EDIT THIS: add/remove booked dates (ISO format YYYY-MM-DD)
 // You can include November dates now as well (e.g. "2025-11-29")
@@ -122,6 +123,43 @@ const janWeek = Array.from({ length: 7 }, (_, i) => {
         <h2 class="h3 font-serif mb-2">🎧 Keep the Party Going</h2>
         <p>Curated Christmas playlist during the breaks, so the festive atmosphere never dips.</p>
       </section>
+
+     <!-- ✅ Reviews Carousel -->
+<section>
+  <div class="container">
+    <h2 class="font-serif text-4xl md:text-5xl mb-6">What clients say</h2>
+  </div>
+  <div class="container">
+    <ReviewsCarousel
+      items={[
+        {
+          text: `We were extremely happy with Aled’s performance at our daughter’s 18th birthday celebrations. 
+His professionalism stood out from the outset – he sent over a selection of curated playlists allowing us to tailor the music to suit the vibe of the evening.
+
+On the night he got the crowd up dancing and created a lively, joyful atmosphere – he even stayed a little longer and played extra songs on request. 
+Thank you Aled for making an unforgettable night for our daughter’s special birthday.`,
+          author: "Karen Jones",
+          rating: 5,
+          date: "22 Oct 2025"
+        },
+         {
+          text: `Aled performed last Saturday at our corporate event and he was fabulous! He was lovely to listen to and had everyone up dancing and singing along! Can't recommend him highly enough. Thank you, Aled!`,
+          author: "Helen Boyce",
+          rating: 5,
+          date: "29 Oct 2025"
+        },
+        {
+          text: `Fantastic singer who performed at our Sports & Social Club's 90s themed event. Great communication throughout, very accommodating & put on a great show for us. Highly recommended and would book again. 👍`,
+          author: "Eryl Jones.",
+          rating: 5,
+          date: "October 2025"
+        }
+      ]}
+      readUrl="https://maps.google.com/?cid=14232761385348644078"
+      leaveUrl="https://g.page/r/Ce48mlIS7YTFEBM/review"
+    />
+  </div>
+</section>
 
       <!-- ✅ Christmas Songlist -->
       <section>
