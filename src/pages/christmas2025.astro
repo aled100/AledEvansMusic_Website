@@ -6,14 +6,19 @@ import Footer from '../components/Footer.astro';
 // 🔧 EDIT THIS: add/remove booked dates (ISO format YYYY-MM-DD)
 // You can include November dates now as well (e.g. "2025-11-29")
 const booked = new Set([
+  "2025-11-07",
+  "2025-11-08",
   "2025-12-06",
   "2025-12-12",
   "2025-11-22",
   "2025-12-13",
   "2025-11-15",
-  "2025-11-29",
+  "2025-11-28",
+  "2025-11-30",
   "2025-12-20",
   "2025-12-21",
+  "2025-12-05",
+  "2025-12-19",
   // "2026-01-01",
 ]);
 
@@ -37,8 +42,8 @@ function monthGrid(year, monthIndex) {
   return cells;
 }
 
-// Coverage range: 10 Nov 2025 → 4 Jan 2026
-const rangeStart = new Date(2025, 10, 10); // 10 Nov 2025
+// Coverage range: 3 Nov 2025 → 4 Jan 2026
+const rangeStart = new Date(2025, 10, 3);  // 03 Nov 2025
 const rangeEnd   = new Date(2026, 0, 4);   // 04 Jan 2026
 
 const nov2025 = monthGrid(2025, 10); // November 2025
@@ -134,7 +139,7 @@ const janWeek = Array.from({ length: 7 }, (_, i) => {
 
       <!-- ✅ Availability Calendar -->
       <section>
-        <h2 class="h3 font-serif mb-6">Availability — 10 Nov 2025 to 4 Jan 2026</h2>
+        <h2 class="h3 font-serif mb-6">Availability — 3 Nov 2025 to 4 Jan 2026</h2>
 
         <!-- Legend -->
         <div class="flex items-center gap-4 mb-4 text-sm">
@@ -169,7 +174,7 @@ const janWeek = Array.from({ length: 7 }, (_, i) => {
                 const inWindow = inRange(d, rangeStart, rangeEnd);
                 const isBooked = inWindow && booked.has(dayISO);
 
-                // Out-of-range days (1st–9th Nov) shown muted
+                // Out-of-range days (1st–2nd Nov) shown muted
                 if (!inWindow) {
                   return (
                     <div class="relative h-12 rounded bg-transparent ring-1 ring-coal/10 text-coal/40">
@@ -192,7 +197,7 @@ const janWeek = Array.from({ length: 7 }, (_, i) => {
                 );
               })}
             </div>
-            <p class="small mt-2 text-coal/70">Covers 10–30 Nov 2025.</p>
+            <p class="small mt-2 text-coal/70">Covers 3–30 Nov 2025.</p>
           </div>
 
           <!-- December 2025 -->
