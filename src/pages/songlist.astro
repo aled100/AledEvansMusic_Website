@@ -15,6 +15,11 @@ const firstDanceIdeas = Array.isArray(site?.songlist?.firstDanceIdeas)
 const songsByDecade = site?.songlist?.songsByDecade ?? {};
 const getDecadeSongs = (d) =>
   Array.isArray(songsByDecade[d]) ? songsByDecade[d] : [];
+
+// Christmas songs fallback
+const christmasSongs = Array.isArray(site?.songlist?.christmasSongs)
+  ? site.songlist.christmasSongs
+  : [];
 ---
 <Base title="Song List — Aled Evans" description={site.metaDescription}>
   <Header />
@@ -45,13 +50,32 @@ const getDecadeSongs = (d) =>
             <ul class="grid sm:grid-cols-2 gap-y-2">
               {songs.map((s) => (
                 <li class="leading-relaxed">
-                  {s.title} — {s.artist} <span class="text-sm text-gray-500">({s.year})</span>
+                  {s.title} — {s.artist}{' '}
+                  <span class="text-sm text-gray-500">({s.year})</span>
                 </li>
               ))}
             </ul>
           </section>
         ) : null;
       })}
+
+      <!-- Christmas Songs -->
+      {christmasSongs.length ? (
+        <section class="mb-10" id="christmas-songs">
+          <h2 class="h3 font-serif mb-2">Christmas Songs</h2>
+          <p class="opacity-70 mb-2">
+            A selection of Christmas favourites I can include in your festive sets.
+          </p>
+          <ul class="grid sm:grid-cols-2 gap-y-2">
+            {christmasSongs.map((s) => (
+              <li class="leading-relaxed">
+                {s.title} — {s.artist}{' '}
+                <span class="text-sm text-gray-500">({s.year})</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </div>
   </main>
   <Footer />
