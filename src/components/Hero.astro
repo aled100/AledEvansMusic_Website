@@ -1,26 +1,31 @@
 ---
 import site from '../content/site.json';
 ---
-<section class="relative">
-  <picture>
-    <!-- Mobile -->
-    <source srcset={site.hero.mobileImage} media="(max-width: 768px)" />
-    <!-- Desktop -->
-    <img 
-      src={site.hero.image} 
-      alt="Aled Evans performing" 
-      class="absolute inset-0 h-full w-full object-cover opacity-60"  <!-- keep your current image look -->
-    />
-  </picture>
+<section class="relative overflow-hidden">
+  <!-- Background video -->
+  <video
+    src="/videos/hero.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster={site.hero.image}
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+    Sorry, your browser doesn't support embedded videos.
+  </video>
 
-  <div class="relative container pt-12 pb-28 md:pt-36 md:pb-40 text-center">
+  <!-- Dark overlay to keep text readable -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <!-- Hero content -->
+  <div class="relative container pt-12 pb-28 md:pt-36 md:pb-40 text-center text-white">
     <img 
       src={site.hero.logo} 
       alt="Logo" 
       class="mx-auto mb-6 h-28 w-28 md:h-72 md:w-72 rounded-full ring-2 ring-white/20 shadow-lg" 
     />
 
-    <!-- ✅ Centered text plaque on all devices -->
     <div class="mx-auto max-w-2xl inline-block rounded-2xl 
                 bg-white/55 md:bg-white/40 backdrop-blur-[2px]
                 ring-1 ring-white/50 shadow-[0_6px_24px_rgba(0,0,0,0.06)]
