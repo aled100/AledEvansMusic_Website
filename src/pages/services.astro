@@ -1,25 +1,63 @@
-
 ---
 import Base from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../content/site.json';
+
+const packages = [
+  {
+    name: 'ONE',
+    description:
+      'Up to two hours of live acoustic music, most often for your drinks reception, but it can also cover your ceremony plus one set afterwards, your wedding breakfast, or early evening entertainment.',
+    price: '£350',
+  },
+  {
+    name: 'TWO OF US',
+    description:
+      'Up to three hours of live music, plus an additional service such as a PA playlist or wireless mic hire. Ideal for Drinks Reception & Wedding Breakfast, or similar two-part combinations of your day.',
+    price: '£500',
+  },
+  {
+    name: 'EVERLONG',
+    description:
+      'Full-day coverage from your ceremony through to the end of the night, including live acoustic sets across your key moments, PA playlist support, wireless mic hire for speeches, and evening DJ-style entertainment to keep the party going.',
+    price: '£750',
+  },
+];
 ---
 <Base title="Services — Aled Evans" description={site.metaDescription}>
   <Header />
   <main class="section">
     <div class="container">
-      <h1 class="h2 font-serif mb-6">Services & Packages</h1>
-      <div class="grid md:grid-cols-3 gap-6">
-        {site.services.map(s => (
-          <div class="rounded-md bg-white ring-1 ring-coal/10 p-6">
-            <div class="text-3xl">{s.icon}</div>
-            <div class="font-serif text-xl mt-3">{s.name}</div>
-            <p class="small mt-2">{s.desc}</p>
+      <h1 class="h2 font-serif mb-3">Services & Packages</h1>
+      <p class="small mb-8 max-w-2xl">
+        Choose the package that fits your day, then get in touch for a tailored quote based on your venue, timings, and location.
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        {packages.map((pkg) => (
+          <div class="flex h-full flex-col rounded-md bg-white p-6 ring-1 ring-coal/10">
+            <div class="flex-1">
+              <h2 class="font-serif text-lg tracking-tight uppercase">{pkg.name}</h2>
+              <p class="small mt-3 leading-relaxed">{pkg.description}</p>
+            </div>
+
+            <div class="mt-6">
+              <div class="text-xs font-semibold uppercase tracking-[0.2em] text-coal/60">
+                From
+              </div>
+              <div class="mt-1 text-2xl font-semibold">
+                {pkg.price}
+              </div>
+              <div class="mt-1 text-[0.7rem] uppercase tracking-[0.2em] text-coal/50">
+                Guide price — final quote depends on date & location
+              </div>
+            </div>
           </div>
         ))}
       </div>
-      <p class="small mt-6">Get a tailored quote for your date and venue.</p>
+
+      <p class="small mt-8">Get a tailored quote for your date and venue.</p>
       <a href="/contact" class="btn mt-3">Get a Quote</a>
     </div>
   </main>
