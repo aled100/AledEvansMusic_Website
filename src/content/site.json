@@ -21,12 +21,7 @@
   "verification": {
     "google": "googleffed1f54ea86c0ef.html"
   },
-  "highlights": [
-    "Acoustic sets for ceremony & drinks",
-    "Dancefloor-filling DJ sets",
-    "One seamless package from start to finish",
-    "Based in South Wales, available UK-wide"
-  ],
+  "highlights": [],
   "about": {
     "short": "Hi, I’m Aled, a South Wales–based acoustic singer, bringing unforgettable live music to weddings, parties, and special events. With soulful acoustic covers and high-energy DJ sets, I create the perfect atmosphere from the ceremony to the last dance.",
     "long": [
@@ -74,12 +69,12 @@
       "/images/7.jpeg",
       "/images/8.jpeg"
     ],
-    "videos": [
-      { "title": "Showreel 1", "url": "https://youtu.be/ec66iRk_Fwc" },
-      { "title": "Short 1", "url": "https://youtube.com/shorts/k1HnCuaWvBk?feature=share" },
-      { "title": "Showreel 2", "url": "https://youtu.be/4lACETfaRAY" },
-      { "title": "Wedding Clip", "url": "https://youtu.be/raSu-yLLnps" }
-    ]
+   "videos": [
+    {
+      "title": "Acoustic Wedding Showreel",
+      "url": "https://youtu.be/-hsiBElMkZs?si=fms1spdysaUFvpks"
+    }
+   ]
   },
 "songlist": {
   "firstDanceIdeas": [

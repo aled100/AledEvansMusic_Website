@@ -4,9 +4,7 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Highlights from '../components/Highlights.astro';
 import AboutPreview from '../components/AboutPreview.astro';
-import ServicesPreview from '../components/ServicesPreview.astro';
 import MediaPreview from '../components/MediaPreview.astro';
-import SonglistPreview from '../components/SonglistPreview.astro';
 import ReviewsCarousel from '../components/ReviewsCarousel.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
@@ -19,7 +17,7 @@ import site from '../content/site.json';
   <Highlights />
   <AboutPreview />
 
-  <!-- ✅ What clients say (moved up to replace Packages) -->
+  <!-- ✅ What clients say (stays) -->
   <section class="section">
     <div class="container">
       <h2 class="font-serif text-3xl mb-4">What clients say</h2>
@@ -57,12 +55,11 @@ Thank you Aled for making an unforgettable night for our daughter’s special bi
     </div>
   </section>
 
-  <!-- Remaining content stays in sequence -->
+  <!-- ✅ Media preview stays -->
   <MediaPreview />
-  <SonglistPreview />
 
-  <!-- ✅ Packages (moved down to where reviews were) -->
-  <ServicesPreview />
+  <!-- ❌ SonglistPreview removed -->
+  <!-- ❌ Services / Packages bar removed -->
 
   <FinalCTA />
 
