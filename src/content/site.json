@@ -69,12 +69,16 @@
       "/images/7.jpeg",
       "/images/8.jpeg"
     ],
-   "videos": [
-    {
-      "title": "Acoustic Wedding Showreel",
-      "url": "https://youtu.be/-hsiBElMkZs?si=fms1spdysaUFvpks"
-    }
-   ]
+"videos": [
+  {
+    "title": "Acoustic Wedding Showreel",
+    "url": "https://youtu.be/-hsiBElMkZs?si=fms1spdysaUFvpks"
+  },
+  {
+    "title": "Live Acoustic Cover",
+    "url": "https://youtu.be/JpMtaDLl6yQ?si=h7arrNs_ACDpucxs"
+  }
+]
   },
 "songlist": {
   "firstDanceIdeas": [
