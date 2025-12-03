@@ -60,26 +60,30 @@
       "icon": "🎧"
     }
   ],
-  "media": {
-    "gallery": [
-      "/images/3.jpeg",
-      "/images/4.jpeg",
-      "/images/5.jpeg",
-      "/images/6.jpeg",
-      "/images/7.jpeg",
-      "/images/8.jpeg"
-    ],
-"videos": [
-  {
-    "title": "Acoustic Wedding Showreel",
-    "url": "https://youtu.be/-hsiBElMkZs?si=fms1spdysaUFvpks"
-  },
-  {
-    "title": "Live Acoustic Cover",
-    "url": "https://youtu.be/JpMtaDLl6yQ?si=h7arrNs_ACDpucxs"
-  }
-]
-  },
+"media": {
+  "gallery": [
+    "/images/3.jpeg",
+    "/images/4.jpeg",
+    "/images/5.jpeg",
+    "/images/6.jpeg",
+    "/images/7.jpeg",
+    "/images/8.jpeg"
+  ],
+  "videos": [
+    {
+      "title": "Acoustic Wedding Showreel",
+      "url": "https://youtu.be/-hsiBElMkZs?si=fms1spdysaUFvpks"
+    },
+    {
+      "title": "Live Acoustic Cover",
+      "url": "https://youtu.be/JpMtaDLl6yQ?si=h7arrNs_ACDpucxs"
+    },
+    {
+      "title": "Live Acoustic Cover 2",
+      "url": "https://youtu.be/B98i_oQgWvw"
+    }
+  ]
+},
 "songlist": {
   "firstDanceIdeas": [
     "Still Into You — Paramore",
