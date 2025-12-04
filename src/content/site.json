@@ -15,7 +15,6 @@
     { "label": "Media", "url": "/media" },
     { "label": "Services", "url": "/services" },
     { "label": "Songlist", "url": "/songlist" },
-    { "label": "Christmas 2025", "url": "/Christmas2025" },
     { "label": "Contact", "url": "/contact" }
   ],
   "verification": {
