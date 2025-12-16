@@ -35,7 +35,15 @@ import site from '../content/site.json';
     </div>
 
     <div class="mt-6">
-      <a href="/contact" class="btn">{site.primaryCTA}</a>
-    </div>
+<a
+  href="/contact"
+  class="btn"
+  onclick="window.gtag?.('event', 'check_my_date_click', {
+    event_category: 'engagement',
+    event_label: 'Hero CTA'
+  })"
+>
+  {site.primaryCTA}
+</a>    </div>
   </div>
 </section>
