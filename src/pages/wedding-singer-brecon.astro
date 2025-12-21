@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../content/site.json';
+---
+
+<Base
+  title="Wedding Singer Brecon | Singing Guitarist for Weddings – Aled Evans"
+  description="Wedding & event singing guitarist in Brecon. Live acoustic music for ceremonies, drinks receptions and evening celebrations. Check availability and book Aled Evans."
+>
+  <Header />
+
+  <section class="section">
+    <div class="container">
+      <h1 class="h1 font-serif mb-3">Wedding Singer in Brecon</h1>
+
+      <p class="text-base text-coal/80 leading-relaxed">
+        I’m Aled Evans — a <strong>wedding &amp; event singing guitarist</strong> providing elegant live acoustic music for weddings in
+        <strong>Brecon</strong> and across South Wales. From ceremony songs and aisle walks to drinks receptions and evening singalongs,
+        I tailor the music to your day and your guests.
+      </p>
+
+      <p class="mt-4 text-base text-coal/80 leading-relaxed">
+        If you’re looking for a reliable, experienced <strong>wedding singer in Brecon</strong> who can create a warm atmosphere early on
+        and lift the room later in the night, I’d love to help. Use the button below to check availability.
+      </p>
+
+      <div class="mt-6">
+        <a
+          href="/contact"
+          class="btn"
+          onclick="window.gtag?.('event', 'check_my_date_click', { event_category: 'engagement', event_label: 'Brecon page CTA' })"
+        >
+          {site.primaryCTA}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="h2 font-serif mb-3">Wedding music options in Brecon</h2>
+
+      <ul class="list-disc pl-6 text-base text-coal/80 leading-relaxed">
+        <li><strong>Ceremony acoustic:</strong> aisle walk, signing, and exit songs</li>
+        <li><strong>Drinks reception:</strong> relaxed background sets and singalong favourites</li>
+        <li><strong>Evening celebration:</strong> upbeat acoustic set (and DJ option if you’d like)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="h2 font-serif mb-3">Popular requests</h2>
+
+      <p class="text-base text-coal/80 leading-relaxed">
+        Want a special first dance or a meaningful ceremony song? I’m happy to take requests and help you choose music that fits your venue,
+        timings and vibe.
+      </p>
+
+      <p class="mt-4 text-base text-coal/80 leading-relaxed">
+        You can also browse my <a class="underline" href="/songlist">song list</a> and watch recent videos on the
+        <a class="underline" href="/media">media</a> page.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Base>

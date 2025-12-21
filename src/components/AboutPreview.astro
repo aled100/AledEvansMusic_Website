@@ -1,14 +1,37 @@
-
 ---
 import site from '../content/site.json';
 ---
 <section class="section">
   <div class="container grid md:grid-cols-[220px,1fr] gap-8 items-start">
-    <img src={site.about.photo} alt="Aled performing" class="w-full rounded-md ring-1 ring-coal/10" />
+    <img
+      src={site.about.photo}
+      alt="Aled performing"
+      class="w-full rounded-md ring-1 ring-coal/10"
+    />
+
     <div>
       <h2 class="h2 font-serif mb-3">About</h2>
       <p class="lead">{site.about.short}</p>
-      <a href="/about" class="btn-outline mt-6 inline-block">Read More</a>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/about" class="btn-outline inline-block">Read More</a>
+
+        <a href="/wedding-singer-cardiff" class="btn-outline inline-block">
+          Wedding Singer in Cardiff
+        </a>
+
+        <a href="/wedding-singer-swansea" class="btn-outline inline-block">
+          Wedding Singer in Swansea
+        </a>
+
+        <a href="/wedding-singer-vale-of-glamorgan" class="btn-outline inline-block">
+          Wedding Singer in the Vale
+        </a>
+
+        <a href="/wedding-singer-brecon" class="btn-outline inline-block">
+          Wedding Singer in Brecon
+        </a>
+      </div>
     </div>
   </div>
 </section>

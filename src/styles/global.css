@@ -22,7 +22,7 @@
   /* Type scale */
   .h1 { @apply font-serif text-4xl md:text-5xl leading-tight; }
   .h2 { @apply font-serif text-2xl md:text-3xl leading-snug; }
-  .lead { @apply text-base md:text-lg text-coal/80; }
+  .lead { @apply font-sans text-base md:text-lg text-coal/80; }
   .small { @apply text-sm text-coal/70; }
 }
 
