@@ -66,5 +66,39 @@ import site from '../content/site.json';
     </div>
   </section>
 
+  <!-- ✅ FAQ Schema for SEO (Cardiff) -->
+  <script type="application/ld+json" is:inline>
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What kind of services do you offer for weddings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "My live acoustic set fits perfectly with afternoon drinks receptions and wedding breakfasts, adding a joyful atmosphere while guests relax and mingle. I can also provide ceremony accompaniment and early-evening party sets, depending on how you’d like your day to flow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you mainly perform at weddings in Cardiff?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — I regularly perform at weddings across Cardiff and South Wales, including venues in the city, surrounding countryside, and nearby areas such as the Vale of Glamorgan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can we request specific songs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. I’m happy to take song requests and help you choose music that fits your venue, timings, and the overall vibe you want for your wedding."
+        }
+      }
+    ]
+  })}
+  </script>
+
   <Footer />
 </Base>
