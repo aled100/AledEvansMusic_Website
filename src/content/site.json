@@ -135,7 +135,7 @@
       { "title": "You Can Call Me Al", "artist": "Paul Simon", "year": 1986 },
       { "title": "Sweet Child O’ Mine", "artist": "Guns N’ Roses", "year": 1987 },
       { "title": "Think We’re Alone Now", "artist": "Tiffany", "year": 1987 },
-      { "title": "I Wanna Dance with Somebody (Who Loves Me)", "artist": "Whitney Houston", "year": 1987 },
+      { "title": "I Wanna Dance with Somebody", "artist": "Whitney Houston", "year": 1987 },
       { "title": "There She Goes", "artist": "The La’s", "year": 1988 },
       { "title": "A Little Respect", "artist": "Erasure", "year": 1988 }
     ],
@@ -145,7 +145,6 @@
       { "title": "Friday I’m in Love", "artist": "The Cure", "year": 1992 },
       { "title": "Motorcycle Emptiness", "artist": "Manic Street Preachers", "year": 1992 },
       { "title": "Rhythm Is a Dancer", "artist": "Snap!", "year": 1992 },
-      { "title": "Come Undone", "artist": "Duran Duran", "year": 1993 },
       { "title": "Laid", "artist": "James", "year": 1993 },
       { "title": "What’s Up?", "artist": "4 Non Blondes", "year": 1993 },
       { "title": "Live Forever", "artist": "Oasis", "year": 1994 },
@@ -172,7 +171,6 @@
       { "title": "Lucky Man", "artist": "The Verve", "year": 1997 },
       { "title": "Save Tonight", "artist": "Eagle-Eye Cherry", "year": 1997 },
       { "title": "Place Your Hands", "artist": "Reef", "year": 1997 },
-      { "title": "Road Rage", "artist": "Catatonia", "year": 1998 },
       { "title": "Iris", "artist": "Goo Goo Dolls", "year": 1998 },
       { "title": "Learning to Fly", "artist": "Foo Fighters", "year": 1999 },
       { "title": "All the Small Things", "artist": "Blink-182", "year": 1999 },
@@ -190,6 +188,7 @@
       { "title": "First Date", "artist": "Blink-182", "year": 2001 },
       { "title": "Handbags and Gladrags", "artist": "Stereophonics", "year": 2001 },
       { "title": "Buck Rogers", "artist": "Feeder", "year": 2001 },
+      { "title": "Come Undone", "artist": "Robbie Williams", "year": 2002 },
       { "title": "Complicated", "artist": "Avril Lavigne", "year": 2002 },
       { "title": "The Scientist", "artist": "Coldplay", "year": 2002 },
       { "title": "Mr. Brightside", "artist": "The Killers", "year": 2003 },
@@ -205,6 +204,7 @@
       { "title": "Valerie", "artist": "Amy Winehouse & Mark Ronson", "year": 2007 },
       { "title": "Love Story", "artist": "Taylor Swift", "year": 2008 },
       { "title": "Use Somebody", "artist": "Kings of Leon", "year": 2008 },
+      { "title": "Human", "artist": "The Killers", "year": 2008 },
       { "title": "Candy", "artist": "Paolo Nutini", "year": 2009 },
       { "title": "Little Lion Man", "artist": "Mumford & Sons", "year": 2009 },
       { "title": "Viva la Vida", "artist": "Coldplay", "year": 2008 }
@@ -219,7 +219,6 @@
       { "title": "Canter", "artist": "Gerry Cinnamon", "year": 2019 },
       { "title": "Stick Season", "artist": "Noah Kahan", "year": 2022 },
       { "title": "We Found Love", "artist": "Rihanna ft. Calvin Harris", "year": 2011 },
-      { "title": "Human", "artist": "Rag’n’Bone Man", "year": 2016 },
       { "title": "Stargazing", "artist": "Myles Smith", "year": 2024 }
     ]
   },
