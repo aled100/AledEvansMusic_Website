@@ -27,20 +27,6 @@ const christmasSongs = Array.isArray(site?.songlist?.christmasSongs)
     <div class="container">
       <h1 class="h2 font-serif mb-4">Song List</h1>
 
-      <!-- First Dance -->
-      <section class="mb-10">
-        <h2 class="h3 font-serif mb-2">First Dance Ideas</h2>
-        {firstDanceIdeas.length ? (
-          <ul class="grid sm:grid-cols-2 gap-y-2">
-            {firstDanceIdeas.map((t) => (
-              <li class="leading-relaxed">{t}</li>
-            ))}
-          </ul>
-        ) : (
-          <p class="opacity-70">First dance ideas coming soon.</p>
-        )}
-      </section>
-
       <!-- Decades -->
       {decadeOrder.map((decade) => {
         const songs = getDecadeSongs(decade);
@@ -76,6 +62,20 @@ const christmasSongs = Array.isArray(site?.songlist?.christmasSongs)
           </ul>
         </section>
       ) : null}
+
+      <!-- First Dance -->
+      <section class="mb-10">
+        <h2 class="h3 font-serif mb-2">First Dance Ideas</h2>
+        {firstDanceIdeas.length ? (
+          <ul class="grid sm:grid-cols-2 gap-y-2">
+            {firstDanceIdeas.map((t) => (
+              <li class="leading-relaxed">{t}</li>
+            ))}
+          </ul>
+        ) : (
+          <p class="opacity-70">First dance ideas coming soon.</p>
+        )}
+      </section>
     </div>
   </main>
   <Footer />

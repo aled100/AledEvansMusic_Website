@@ -121,7 +121,9 @@
       { "title": "Dancing Queen", "artist": "ABBA", "year": 1976 },
       { "title": "Beast of Burden", "artist": "The Rolling Stones", "year": 1978 },
       { "title": "Don’t Stop Me Now", "artist": "Queen", "year": 1979 },
-      { "title": "Highway to Hell", "artist": "AC/DC", "year": 1979 }
+      { "title": "Highway to Hell", "artist": "AC/DC", "year": 1979 },
+      { "title": "Rocket Man", "artist": "Elton John", "year": 1972 },
+      { "title": "The Gambler", "artist": "Kenny Rogers", "year": 1978 }
     ],
 
     "1980s": [
@@ -136,7 +138,9 @@
       { "title": "Think We’re Alone Now", "artist": "Tiffany", "year": 1987 },
       { "title": "I Wanna Dance with Somebody", "artist": "Whitney Houston", "year": 1987 },
       { "title": "There She Goes", "artist": "The La’s", "year": 1988 },
-      { "title": "A Little Respect", "artist": "Erasure", "year": 1988 }
+      { "title": "A Little Respect", "artist": "Erasure", "year": 1988 },
+      { "title": "Holding Out for a Hero", "artist": "Bonnie Tyler", "year": 1984 },
+      { "title": "Livin' on a Prayer", "artist": "Bon Jovi", "year": 1986 }
     ],
 
     "1990s": [
@@ -206,7 +210,8 @@
       { "title": "Human", "artist": "The Killers", "year": 2008 },
       { "title": "Candy", "artist": "Paolo Nutini", "year": 2009 },
       { "title": "Little Lion Man", "artist": "Mumford & Sons", "year": 2009 },
-      { "title": "Viva la Vida", "artist": "Coldplay", "year": 2008 }
+      { "title": "Viva la Vida", "artist": "Coldplay", "year": 2008 },
+      { "title": "Many of Horror", "artist": "Biffy Clyro", "year": 2009 }
     ],
 
     "2010s": [
@@ -218,7 +223,13 @@
       { "title": "Canter", "artist": "Gerry Cinnamon", "year": 2019 },
       { "title": "Stick Season", "artist": "Noah Kahan", "year": 2022 },
       { "title": "We Found Love", "artist": "Rihanna ft. Calvin Harris", "year": 2011 },
-      { "title": "Stargazing", "artist": "Myles Smith", "year": 2024 }
+      { "title": "Stargazing", "artist": "Myles Smith", "year": 2024 },
+      { "title": "Chocolate", "artist": "The 1975", "year": 2012 },
+      { "title": "People Watching", "artist": "Sam Fender", "year": 2019 }
+    ],
+
+    "2020s": [
+      { "title": "Flowers", "artist": "Miley Cyrus", "year": 2023 }
     ]
   },
 
