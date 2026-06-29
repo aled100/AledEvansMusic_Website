@@ -20,6 +20,8 @@ const getDecadeSongs = (d) =>
 const christmasSongs = Array.isArray(site?.songlist?.christmasSongs)
   ? site.songlist.christmasSongs
   : [];
+
+const allSongs = decadeOrder.flatMap(d => getDecadeSongs(d));
 ---
 <Base title="Song List — Aled Evans" description={site.metaDescription}>
   <Header />
