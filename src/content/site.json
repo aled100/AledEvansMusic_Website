@@ -174,7 +174,7 @@
       { "title": "Bitter Sweet Symphony", "artist": "The Verve", "year": 1997 },
       { "title": "Lucky Man", "artist": "The Verve", "year": 1997 },
       { "title": "Save Tonight", "artist": "Eagle-Eye Cherry", "year": 1997 },
-      { "title": "Place Your Hands", "artist": "Reef", "year": 1997 },
+      { "title": "Place Your Hands", "artist": "Reef", "year": 1996 },
       { "title": "Iris", "artist": "Goo Goo Dolls", "year": 1998 },
       { "title": "Kiss Me", "artist": "Sixpence None the Richer", "year": 1998 },
       { "title": "Learning to Fly", "artist": "Foo Fighters", "year": 1999 },
@@ -204,14 +204,13 @@
       { "title": "You’re All I Have", "artist": "Snow Patrol", "year": 2006 },
       { "title": "Last Request", "artist": "Paolo Nutini", "year": 2006 },
       { "title": "Chasing Cars", "artist": "Snow Patrol", "year": 2006 },
-      { "title": "Valerie", "artist": "The Zutons", "year": 2006 },
       { "title": "Valerie", "artist": "Amy Winehouse & Mark Ronson", "year": 2007 },
       { "title": "Love Story", "artist": "Taylor Swift", "year": 2008 },
       { "title": "Use Somebody", "artist": "Kings of Leon", "year": 2008 },
       { "title": "Human", "artist": "The Killers", "year": 2008 },
+      { "title": "Viva la Vida", "artist": "Coldplay", "year": 2008 },
       { "title": "Candy", "artist": "Paolo Nutini", "year": 2009 },
       { "title": "Little Lion Man", "artist": "Mumford & Sons", "year": 2009 },
-      { "title": "Viva la Vida", "artist": "Coldplay", "year": 2008 },
       { "title": "Many of Horror", "artist": "Biffy Clyro", "year": 2009 }
     ],
 
@@ -223,14 +222,14 @@
       { "title": "Adventure of a Lifetime", "artist": "Coldplay", "year": 2015 },
       { "title": "Hold My Girl", "artist": "George Ezra", "year": 2018 },
       { "title": "Will We Talk?", "artist": "Sam Fender", "year": 2019 },
-      { "title": "Canter", "artist": "Gerry Cinnamon", "year": 2019 },
-      { "title": "People Watching", "artist": "Sam Fender", "year": 2019 }
+      { "title": "Canter", "artist": "Gerry Cinnamon", "year": 2019 }
     ],
 
     "2020s": [
       { "title": "Stick Season", "artist": "Noah Kahan", "year": 2022 },
       { "title": "Flowers", "artist": "Miley Cyrus", "year": 2023 },
-      { "title": "Stargazing", "artist": "Myles Smith", "year": 2024 }
+      { "title": "Stargazing", "artist": "Myles Smith", "year": 2024 },
+      { "title": "People Watching", "artist": "Sam Fender", "year": 2025 }
     ]
   },
 
